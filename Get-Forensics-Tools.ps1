@@ -52,20 +52,20 @@ function Get-SansPosters()
     $repo = "sift-saltstack"
     $apiurl = "https://api.github.com/repos"
 
-    #Master Branch's sha
+    # Creates an object, for each of the relevant sans sift-saltstack trees
     $masterbranch = (Invoke-WebRequest "$apiurl/$owner/$repo/branches/master"| ConvertFrom-Json)
     $sifttree = (Invoke-WebRequest $masterbranch.commit.commit.tree.url | ConvertFrom-Json).tree | Where-Object path -eq sift
     $filestree = (Invoke-WebRequest $sifttree.url | ConvertFrom-Json).tree | Where-Object path -eq files
     $sift2tree = (Invoke-WebRequest $filestree.url | ConvertFrom-Json).tree | Where-Object path -eq sift
     $resourcestree = (Invoke-WebRequest $sift2tree.url | ConvertFrom-Json).tree | Where-Object path -eq resources
     
-    #Gets the filelisting from the master tree
-    $files = (Invoke-WebRequest $resourcestree.url| ConvertFrom-Json)[0].tree
+    #Creates a tree oject from /sift/files/sift/resources where posters are located
+    $posters = (Invoke-WebRequest $resourcestree.url| ConvertFrom-Json)[0].tree
 
-    #Downloads the files
-    foreach ($file in $files)
+    #Downloads the posters
+    foreach ($poster in $posters)
     {
-        $filename = $file.path
+        $filename = $poster.path
         Start-BitsTransfer -source "https://raw.githubusercontent.com/$owner/$repo/master/sift/files/sift/resources/$filename"
     }
 }
@@ -74,8 +74,6 @@ function Install-FTK
 {
     Start-BitsTransfer -Source "https://ad-iso.s3.amazonaws.com/AD_Forensic_Tools_7.3.0.iso"
     Mount-DiskImage AD_Forensic_Tools_7.3.0.iso
-
-
 }
 
 Import-Module BitsTransfer
