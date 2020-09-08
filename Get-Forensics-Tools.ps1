@@ -3,7 +3,7 @@ function Get-ZippedDownload([String] $name, [String] $dl_url)
     #Download Zip    
     $zip = "$($name).zip"
     
-    Write-Host Dowloading $name
+    Write-Host Downloading $name
     Invoke-WebRequest $dl_url -OutFile $zip
 
     #Extract Zip    
@@ -26,7 +26,7 @@ function Get-CyLR
     $zip = "$name.zip"
 
     #Download Latest Release
-    Write-Host Dowloading latest release of $name
+    Write-Host Downloading latest release of $name
     Invoke-WebRequest $download -Out $zip
 
     Write-Host Extracting release files
