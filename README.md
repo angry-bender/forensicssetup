@@ -4,7 +4,7 @@
 
 An open source project to aimed to replicate the Windows SIFT Machine used during SANS Courses minus any payware software. This aims to install the same tools forensics anlaysts have trained with during their SANS Course, or to quickly prepare for a CTF, as there does not appear to be a similar VM available Open Source.
 
-This script Is Designed for personal use, or commericial use if you have the relevant licence for software such as FTK. By installing these scripts, you agree to be bound by the vendors own licence agreement. No responsibility will be taken for licence misuse.
+This script Is designed for personal use, or commericial use if you have the relevant licence for software such as FTK. By installing these scripts, you agree to be bound by the vendors own licence agreement. No responsibility will be taken for licence misuse.
 
 ### Announcements
 Beta Release
