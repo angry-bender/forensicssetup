@@ -6,8 +6,8 @@ Internet Explorer opened, with default settings selected
 
 
 ## Usage
-Install Choclatey with 
-Get-Choclatey.ps1
+Install Chocolatey with 
+Get-Chocolatey.ps1
 
 Install Git with 
 Get-Git.ps1
