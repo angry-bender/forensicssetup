@@ -1,4 +1,4 @@
-# forensicssetup
+# forensicssetup Beta 0.1
 
 ## Pre-requisites
 64 Bit Windows 10 1904 or above
