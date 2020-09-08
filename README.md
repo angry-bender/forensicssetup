@@ -1,4 +1,4 @@
-# forensicssetup Beta 0.1
+# WINSIFT ForensicsSetup Beta 0.1
 
 ## Description
 
