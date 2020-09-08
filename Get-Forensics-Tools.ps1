@@ -1,3 +1,16 @@
+function Get-ZippedDownload([String] $name, [String] $dl_url)
+{
+        $zip = "$name.zip"
+    
+        Write-Host Dowloading $name
+        Invoke-WebRequest $dl_url -OutFile $zip
+    
+        Write-Host Extracting release files
+        Expand-Archive $zip -Force
+       
+        # Removing temp files
+        Remove-Item $zip -Force
+}
 function Get-CyLR
 {
     # Download latest release from github
@@ -21,36 +34,35 @@ function Get-CyLR
     # Removing temp files
     Remove-Item $zip -Force
 }
-
-function Get-Standalone-Download([String] $url, [String] $name)
+function Get-Dcode()
 {
-        $file="$(name).zip"
-        $download = "$(url)"
-        $name = $file.Split(".")[0]
-        $zip = "$name.zip"
-        $dir = "$name"
+    $webresponse =  Invoke-WebRequest "https://www.digital-detective.net/dcode" -useBasicParsing 
+    $dl_url = $webresponse.Links | where href -Like "*download*" | where href -notlike "*downloads*"
+
+    Get-ZippedDownload "Dcode" $dl_url.href
+}
+
+function Get-SansPosters()
+{
+    $DesktopPath = [Environment]::GetFolderPath("CommonDesktopDirectory")
+
+    $raw_url = "https://raw.githubusercontent.com/teamdfir/sift-saltstack/master/sift/files/sift/resources/"
+    Start-BitsTransfer -source $raw_url"Evidence-of-Poster.pdf"
+    Start-BitsTransfer -source $raw_url"Find-Evil-Poster.pdf"
+    Start-BitsTransfer -source $raw_url"SANS-DFIR.pdf"
+    Start-BitsTransfer -source $raw_url"Smartphone-Forensics-Poster.pdf"
+    Start-BitsTransfer -source $raw_url"memory-forensics-cheatsheet.pdf"
+    Start-BitsTransfer -source $raw_url"network-forensics-cheatsheet.pdf"
+    Start-BitsTransfer -source $raw_url"sift-cheatsheet.pdf"
+    Start-BitsTransfer -source $raw_url"windows-to-unix-cheatsheet.pdf"
+
+    New-Item -Path $DesktopPath -Name "SANS_Posters" -ItemType "directory"
     
-        Write-Host Dowloading latest release
-        Invoke-WebRequest $download -Out $zip
-    
-        Write-Host Extracting release files
-        Expand-Archive $zip -Force
-    
-        # Cleaning up target dir
-        Remove-Item $name -Recurse -Force -ErrorAction SilentlyContinue 
-    
-        # Moving from temp dir to target dir
-        Move-Item $dir\$name -Destination $name -Force
-    
-        # Removing temp files
-        Remove-Item $zip -Force
-        Remove-Item $dir -Recurse -Force
-    }
 }
 
 function Install-FTK
 {
-    Invoke-WebRequest https://ad-iso.s3.amazonaws.com/AD_Forensic_Tools_7.3.0.iso
+    Start-BitsTransfer -Source "https://ad-iso.s3.amazonaws.com/AD_Forensic_Tools_7.3.0.iso"
     Mount-DiskImage AD_Forensic_Tools_7.3.0.iso
 
 
@@ -73,15 +85,6 @@ Set-Location C:\NonChoco_Tools
 
 # Start Getting and Installing other Executables
 Get-CyLR
-Get-Standalone-Download "DCode" "https://www.digital-detective.net/download/download.php?downcode=ae2znu5994j1lforlh03"
+Get-Dcode
 
-# Get SANS Posters
-$raw_url = "https://raw.githubusercontent.com/teamdfir/sift-saltstack/master/sift/files/sift/resources/"
-Start-BitsTransfer -source $raw_url"Evidence-of-Poster.pdf" -des
-Start-BitsTransfer -source $raw_url"Find-Evil-Poster.pdf"
-Start-BitsTransfer -source $raw_url"SANS-DFIR.pdf"
-Start-BitsTransfer -source $raw_url"Smartphone-Forensics-Poster.pdf"
-Start-BitsTransfer -source $raw_url"memory-forensics-cheatsheet.pdf"
-Start-BitsTransfer -source $raw_url"network-forensics-cheatsheet.pdf"
-Start-BitsTransfer -source $raw_url"sift-cheatsheet.pdf"
-Start-BitsTransfer -source $raw_url"windows-to-unix-cheatsheet.pdf"
+
