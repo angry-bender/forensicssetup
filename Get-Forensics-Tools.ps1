@@ -23,7 +23,7 @@ function Get-CyLR
     Write-Host Determining latest release of $repo
     $download = (Invoke-WebRequest $releases | ConvertFrom-Json)[0].assets[2].browser_download_url
     $name = (Invoke-WebRequest $releases | ConvertFrom-Json)[0].name
-    $zip = "$name.zip"
+    $zip = "$($name).zip"
 
     #Download Latest Release
     Write-Host Downloading latest release of $name
@@ -87,15 +87,20 @@ function Get-SansResources()
     
 }
 
-function Get-FTK
+function Get-FTKImager
 {
-    # Start-BitsTransfer -Source "https://ad-iso.s3.amazonaws.com/AD_Forensic_Tools_7.3.0.iso"
-    Write-Host "Installing FTK, This is only available by GUI Installer, and cannot be done unattended"
-    Mount-DiskImage $pwd\AD_Forensic_Tools_7.3.0.iso | Out-Null
-    $driveletter = (Get-DiskImage C:\test\AD_Forensic_Tools_7.3.0.iso | Get-Volume).DriveLetter
-    Write-host "The script is paused until installation is complete, including the installation cleanup (might take upto 3 minutes after clicking finish)"
-    Start-Process "$($driveletter):\Imager\AccessData_FTK_Imager_(x64).exe" -ArgumentList "/S /V /qn" -wait    
-    Dismount-DiskImage $pwd\AD_Forensic_Tools_7.3.0.iso | Out-Null
+    #Checks the latest release of FTK Imager from Access Data's amazon instance
+    Write-Host Determining latest release of FTK
+    $releaseRequest = Invoke-WebRequest "https://ad-exe.s3.amazonaws.com/"
+    [XML]$releaseDetails = $releaseRequest.content
+    $releases = $releaseDetails.ListBucketResult.contents | where-object key -like "*Imager*" | sort-object -property LastModified -Descending
+    $release = $releases[0].Key
+    
+    Write-Host Downloading latest release of $release
+    Start-BitsTransfer -Source "https://ad-exe.s3.amazonaws.com/$release"
+    Write-Host "Installing FTK, Please Wait"
+    Start-Process "$($pwd)\$($release)"  -ArgumentList '/s /v"/qn"' -wait  
+    Remove-Item "$($pwd)\$($release)"
 }
 
 Import-Module BitsTransfer
@@ -118,7 +123,7 @@ Set-Location C:\NonChoco_Tools
 Get-CyLR
 Get-Dcode
 Get-SansResources
-Get-FTK
+Get-FTKImager
 
 
 
