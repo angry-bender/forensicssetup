@@ -83,25 +83,9 @@ function Get-SansResources()
         Start-BitsTransfer -source "https://raw.githubusercontent.com/$($owner)/$($repo)/master/sift/files/sift/images/$($filename)"
         Move-Item $filename "$($DesktopPath)\"
     }
-
-    
+  
 }
 
-function Get-FTKImager
-{
-    #Checks the latest release of FTK Imager from Access Data's amazon instance
-    Write-Host Determining latest release of FTK
-    $releaseRequest = Invoke-WebRequest "https://ad-exe.s3.amazonaws.com/"
-    [XML]$releaseDetails = $releaseRequest.content
-    $releases = $releaseDetails.ListBucketResult.contents | where-object key -like "*Imager*" | sort-object -property LastModified -Descending
-    $release = $releases[0].Key
-    
-    Write-Host Downloading latest release of $release
-    Start-BitsTransfer -Source "https://ad-exe.s3.amazonaws.com/$release"
-    Write-Host "Installing FTK, Please Wait"
-    Start-Process "$($pwd)\$($release)"  -ArgumentList '/s /v"/qn"' -wait  
-    Remove-Item "$($pwd)\$($release)"
-}
 
 Import-Module BitsTransfer
 
