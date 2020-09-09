@@ -107,7 +107,7 @@ Set-Location C:\NonChoco_Tools
 Get-CyLR
 Get-Dcode
 Get-SansResources
-Get-FTKImager
+
 
 
 
