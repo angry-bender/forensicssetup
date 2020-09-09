@@ -1,25 +1,43 @@
-# WINSIFT ForensicsSetup Beta 0.2
+# 1. WINSIFT ForensicsSetup Beta 0.2
 
-## Description
+## 1.1. Contents
+
+- [1. WINSIFT ForensicsSetup Beta 0.2](#1-winsift-forensicssetup-beta-02)
+  - [1.1. Contents](#11-contents)
+  - [1.2. Description](#12-description)
+    - [1.2.1. Licencing](#121-licencing)
+      - [1.2.1.1. Licenced Software (Included) - Free Licence - Non-Commercial Use](#1211-licenced-software-included---free-licence---non-commercial-use)
+      - [1.2.1.2. Licenced Software (In-Progress) - Free Licence - Non-Commercial Use](#1212-licenced-software-in-progress---free-licence---non-commercial-use)
+      - [1.2.1.3. Licenced Software (Not Included)](#1213-licenced-software-not-included)
+    - [1.2.2. Unlicenced Software (Included)](#122-unlicenced-software-included)
+    - [1.2.3. Unlicenced Software (In Progress)](#123-unlicenced-software-in-progress)
+    - [1.2.4. Announcements](#124-announcements)
+    - [1.2.5. In Development](#125-in-development)
+    - [1.2.6. Feedback / tool Requests](#126-feedback--tool-requests)
+  - [1.3. Pre-requisites](#13-pre-requisites)
+  - [1.4. Usage](#14-usage)
+  - [1.5. Developer contact](#15-developer-contact)
+
+## 1.2. Description
 
 An open source project to aimed to replicate the Windows SIFT Machine used during SANS Courses minus any payware software. This aims to install the same tools forensics anlaysts have trained with during their SANS Course, or to quickly prepare for a CTF, as there does not appear to be a similar VM available Open Source.
 
-### Licencing
+### 1.2.1. Licencing
 
 This script Is designed for non-commercial use, By installing these scripts, you agree to be bound by the vendors own licence agreement. No responsibility will be taken for licence misuse.
 
 If you wish to use this script for commercial-use the following software requires licencing
 
-#### Licenced Software (Included) - Free Licence - Non-Commercial Use
+#### 1.2.1.1. Licenced Software (Included) - Free Licence - Non-Commercial Use
 
 * Arsenal Image Mounter
 * FTK (With marketing sign up) - Will work on user prompt to download free version by sign up, with user consent.
 
-#### Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
+#### 1.2.1.2. Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
 
 * Event Log Explorer
 
-#### Licenced Software (Not Included)
+#### 1.2.1.3. Licenced Software (Not Included)
 
 * 4n6time
 * Blacklight
@@ -50,7 +68,7 @@ If you wish to use this script for commercial-use the following software require
 * TZWorks USB Storage Parser
 * TZWorks YARU
 
-### Unlicenced Software (Included)
+### 1.2.2. Unlicenced Software (Included)
 
 amcacheparser
 * AppCompatCacheParser
@@ -75,7 +93,7 @@ amcacheparser
 * ExifTool
 * ExifTool GUI
 
-### Unlicenced Software (In Progress)
+### 1.2.3. Unlicenced Software (In Progress)
 
 * $LogFileParser
 * 7-Zip
@@ -237,25 +255,25 @@ amcacheparser
 * XORStrings
 * Yara
 
-### Announcements
+### 1.2.4. Announcements
 
 Beta Release
 
-### In Development
+### 1.2.5. In Development
 
 GUI Replication that categorises each tool, similar to the Windows SIFT VM.
 Implimentation of further tools.
 
-### Feedback / tool Requests
+### 1.2.6. Feedback / tool Requests
 
 Please raise an issue for extra tools.
 
-## Pre-requisites
+## 1.3. Pre-requisites
 
 64 Bit Windows 10 1904 or above setup as default.
 Internet Explorer opened, with default settings selected.
 
-## Usage
+## 1.4. Usage
 
 Install Chocolatey with
 Get-Chocolatey.ps1
@@ -266,6 +284,6 @@ Get-Git.ps1
 Install Forensics Tools with
 Get-Forensics-Tools.ps1
 
-## Developer contact
+## 1.5. Developer contact
 
 If you have any suggestions or feedback, or; Are the developer or copyright holder of a package you do not want included in this script, please raise an issue.
