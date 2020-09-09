@@ -83,8 +83,7 @@ function Get-SansResources()
         Start-BitsTransfer -source "https://raw.githubusercontent.com/$($owner)/$($repo)/master/sift/files/sift/images/$($filename)"
         Move-Item $filename "$($DesktopPath)\"
     }
-
-    
+  
 }
 
 
