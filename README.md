@@ -34,3 +34,7 @@ Get-Git.ps1
 
 Install Forensics Tools with
 Get-Forensics-Tools.ps1
+
+## Developer contact
+
+If you have any suggestions or feedback, or; Are the developer or copyright holder of a package you do not want included in this script, please raise an issue.
