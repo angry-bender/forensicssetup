@@ -33,9 +33,10 @@ If you wish to use this script for commercial-use the following software require
 - Arsenal Image Mounter
 - FTK (With marketing sign up) - Will work on user prompt to download free version by sign up, with user consent [#4](../../issues/4) [#10](../../issues/10)
 
-#### Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
+#### 1.2.1.2. Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
 
-- Event Log Explorer [#10](../../issues/10)
+- Event Log Explorer [#10](../../issues/10) [#14](../../issues/14)
+>>>>>>> e050ac0725b4a0a1484dbb2e313b1221d58090c7
 
 #### Licenced Software (Not Included)
 
