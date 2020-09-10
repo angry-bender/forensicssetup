@@ -30,7 +30,7 @@ If you wish to use this script for commercial-use the following software require
 
 #### 1.2.1.1. Licenced Software (Included) - Free Licence - Non-Commercial Use
 
-* Arsenal Image Mounter
+* Arsenal Image Mounter [#5](../../issues/10)
 * FTK (With marketing sign up) - Will work on user prompt to download free version by sign up, with user consent [#4](../../issues/4) [#10](../../issues/10)
 
 #### 1.2.1.2. Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
@@ -69,6 +69,7 @@ If you wish to use this script for commercial-use the following software require
 * TZWorks YARU
 
 ### 1.2.2. Unlicenced Software (Included)
+
 * Chocolately GUI
 * Chocolately Installer
 * amcacheparser
