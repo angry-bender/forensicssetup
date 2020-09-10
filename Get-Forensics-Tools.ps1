@@ -10,21 +10,32 @@ function Get-ZippedDownload([String] $name, [String] $dl_url)
     Write-Host Extracting release files
     Expand-Archive $zip -Force
     
-    # Removing temp files
-    # Remove-Item $zip -Force
+    Write-Host Removing temp files
+    Remove-Item $zip -Force
 }
 
 function Install-MSI([string] $name, [string]$msiargs)
 {
+    #Checks Directory Config
+    $startloc = "$($pwd)"
     Set-Location "$($pwd)\$($name)"
     $dircontents = Get-ChildItem
+
+    #Sees if zipfile contains another sub-directory
+    if ($dircontents.Attributes -like "Directory" -and $dircontents.Name -like "*$($name)*" ) 
+    {
+        Set-Location $dircontents.Name 
+        $dircontents = Get-ChildItem
+    }
+
+    #Finds installer and runs
     $installer = Get-ChildItem | Where-Object { $_.name -like "*$($name)*"} | Where-Object { $_.Extension -like "*.msi*" -or $_.Extension -like "*.exe*" } 
     if($dircontents.Extension -like "*.exe*")
     {
         Write-Host "Installing $($installer.name), Please Wait"
-        Start-Process "$($pwd)\*.exe"  -ArgumentList "$($msiargs)" -wait  
+        Start-Process "$($pwd)\$($installer.name)"  -ArgumentList "$($msiargs)" -wait  
     }
-    if($dircontents.Extension -like "*.msi*")
+    elseif($dircontents.Extension -like "*.msi*")
     {
         #placeholder
     }
@@ -32,14 +43,16 @@ function Install-MSI([string] $name, [string]$msiargs)
     {
         $Global:errorlog.add("$($name) : MSI not present") | Out-Null
     }
-
+    Set-Location "$($startloc)"
 }
 function Get-BundledDownload([String] $name, [String] $dl_url)
 {
+    #downloads raw exe files
     $exe = "$($name).exe"
-    
+    New-Item -Path "$($pwd)\" -Name "$($name)" -ItemType "directory"
+
     Write-Host Downloading $name
-    Invoke-WebRequest $dl_url -OutFile $exe
+    Invoke-WebRequest $dl_url -OutFile $($name)\$exe
 }
 function Get-Package([String] $name, [String] $url,[String] $linkmember,[String] $type, [string] $msiargs,[String] $likefilter, [String] $notfilter)
 {
@@ -80,6 +93,7 @@ function Get-Package([String] $name, [String] $url,[String] $linkmember,[String]
         }         
     } 
     Install-MSI  "$($name)" "$($msiargs)"
+    Remove-Item "$($pwd)\$($name)" -Recurse -Force
 }
 
 function Get-CyLR
@@ -165,13 +179,14 @@ choco install exiftoolgui
 
 # Create a working directory for other executables then work there
 New-Item -Path "C:\" -Name "NonChoco_Tools" -ItemType "directory"
-Set-Location C:\NonChoco_Tools
+Set-Location C:\Test
 
 # Start Getting and Installing other Executables
 # Get Package Syntax
 # Get-Package name url linkmember type msiargs likefilter notfilter)
 Get-CyLR
 Get-Package dcode "https://www.digital-detective.net/dcode" "href" "zip" '/silent' "download" "downloads"
+Get-Package "Arsenal" "https://arsenalrecon.com/downloads/" "outerHTML" "zip" "/?" "button_0"
 Get-SansResources
 
 
