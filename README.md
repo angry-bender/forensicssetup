@@ -31,7 +31,7 @@ If you wish to use this script for commercial-use the following software require
 #### 1.2.1.1. Licenced Software (Included) - Free Licence - Non-Commercial Use
 
 * Arsenal Image Mounter
-* FTK (With marketing sign up) - Will work on user prompt to download free version by sign up, with user consent.
+* FTK (With marketing sign up) - Will work on user prompt to download free version by sign up, with user consent [#1](../../issues/4)
 
 #### 1.2.1.2. Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
 
