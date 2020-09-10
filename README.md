@@ -34,8 +34,7 @@ If you wish to use this script for commercial-use the following software require
 * FTK (With marketing sign up) - Will work on user prompt to download free version by sign up, with user consent [#4](../../issues/4) [#10](../../issues/10)
 
 #### 1.2.1.2. Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
-
-* Event Log Explorer [#10](../../issues/10)
+* Event Log Explorer [#10](../../issues/10) [#14](../../issues/14)
 
 #### 1.2.1.3. Licenced Software (Not Included)
 
@@ -120,7 +119,6 @@ If you wish to use this script for commercial-use the following software require
 * EDD
 * EMFSpoolerView
 * ESECarve
-* Event Log Explorer
 * Findevil
 * FireFox [#9](../../issues/9)
 * FixEVT
