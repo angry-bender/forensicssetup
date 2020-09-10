@@ -36,7 +36,7 @@ If you wish to use this script for commercial-use the following software require
 #### 1.2.1.2. Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
 
 - Event Log Explorer [#10](../../issues/10) [#14](../../issues/14)
->>>>>>> e050ac0725b4a0a1484dbb2e313b1221d58090c7
+
 
 #### Licenced Software (Not Included)
 
