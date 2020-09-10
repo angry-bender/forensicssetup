@@ -31,11 +31,11 @@ If you wish to use this script for commercial-use the following software require
 #### 1.2.1.1. Licenced Software (Included) - Free Licence - Non-Commercial Use
 
 * Arsenal Image Mounter
-* FTK (With marketing sign up) - Will work on user prompt to download free version by sign up, with user consent [#1](../../issues/4)
+* FTK (With marketing sign up) - Will work on user prompt to download free version by sign up, with user consent [#4](../../issues/4) [#10](../../issues/10)
 
 #### 1.2.1.2. Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
 
-* Event Log Explorer
+* Event Log Explorer [#10](../../issues/10)
 
 #### 1.2.1.3. Licenced Software (Not Included)
 
@@ -69,8 +69,9 @@ If you wish to use this script for commercial-use the following software require
 * TZWorks YARU
 
 ### 1.2.2. Unlicenced Software (Included)
-
-amcacheparser
+* Chocolately GUI
+* Chocolately Installer
+* amcacheparser
 * AppCompatCacheParser
 * bstrings
 * ESEDatabase View
@@ -92,27 +93,26 @@ amcacheparser
 * Network Miner
 * ExifTool
 * ExifTool GUI
+* Testdisk / PhotoRec
+* Dcode Date
 
 ### 1.2.3. Unlicenced Software (In Progress)
 
 * $LogFileParser
-* 7-Zip
-* AbobeAIR
+* 7-Zip [#9](../../issues/9)
+* AbobeAIR [#9](../../issues/9)
 * Access Data Registry Viewer
 * Active State Active Perl
-* Adobe Reader
+* Adobe Reader [#9](../../issues/9)
 * Advanced Prefetch Analyzer
 * Auto_XOR_Decryptor.py
 * Autopsy
 * Autorip
 * BinText
 * Bulk Extractor
-* Chocolately GUI
-* Chocolately Installer
 * Converter
 * cRaRk
 * cRaRk GUI
-* Dcode Date
 * defraggler
 * Diff.exe
 * Disk2VHD
@@ -121,20 +121,20 @@ amcacheparser
 * ESECarve
 * Event Log Explorer
 * Findevil
-* FireFox
+* FireFox [#9](../../issues/9)
 * FixEVT
-* Flash Player Activex
-* Flash Player Plugin
+* Flash Player Activex [#9](../../issues/9)
+* Flash Player Plugin [#9](../../issues/9)
 * Forensic Copy
 * Forensic Image Viewer - FIV
 * GA Cookie Cruncher
 * Gmail Offline Parser
-* Google Chrome
+* Google Chrome [#9](../../issues/9)
 * GPG4Win
 * Hindsight
 * Image Magick
 * INDXParse (W. Ballenthin)
-* Java Runtime
+* Java Runtime [#9](../../issues/9)
 * jl.exe 
 * jobparse.pl
 * JRE8
@@ -153,28 +153,26 @@ amcacheparser
 * MFT View
 * MiTec Structured Storage View
 * MiTec Windows Registry Analyzer
-* Notepad++
+* Notepad++ [#9](../../issues/9)
 * Nuix 6
 * oclHashcat-plus
-* OpenOffice 4
-* OpenVPN GUI
+* OpenOffice 4 [#9](../../issues/9)
+* OpenVPN GUI [#9](../../issues/9)
 * page_brute
 * parse_csc_dir.exe
 * Patator (password cracker)
 * PC Inspector File Recovery
 * pdbxtract
 * Prefetch Parser (McKinnon)
-* Process Explorer
 * Process Hacker
-* Process Monitor
-* Putty
+* Putty [#9](../../issues/9)
 * Python 2.7 pywin32-221
 * Python 2.7.13
 * Python 3.2.3 (64-bit)
 * Python 3.6.0 (64-bit)
 * Python Launcher
 * Python_EVTX (W. Ballenthin)
-* Quicktime
+* Quicktime [#9](../../issues/9)
 * RecoverRS
 * Recycle Bin Parser
 * RegDecoder
@@ -205,7 +203,6 @@ amcacheparser
 * SSDeep
 * Strings
 * TCHunt
-* Testdisk / PhotoRec
 * ThumbCache Viewer
 * Thumbs Viewer
 * TriForce
