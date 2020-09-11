@@ -7,7 +7,7 @@
   - [Description](#description)
     - [Licencing](#licencing)
       - [Licenced Software (Included) - Free Licence - Non-Commercial Use](#licenced-software-included---free-licence---non-commercial-use)
-      - [1.2.1.2. Licenced Software (In-Progress) - Free Licence - Non-Commercial Use](#1212-licenced-software-in-progress---free-licence---non-commercial-use)
+      - [Licenced Software (In-Progress) - Free Licence - Non-Commercial Use](#licenced-software-in-progress---free-licence---non-commercial-use)
       - [Licenced Software (Not Included)](#licenced-software-not-included)
     - [Unlicenced Software (Included)](#unlicenced-software-included)
     - [Unlicenced Software (In Progress)](#unlicenced-software-in-progress)
@@ -33,7 +33,7 @@ If you wish to use this script for commercial-use the following software require
 - Arsenal Image Mounter
 - FTK (With marketing sign up) - Will work on user prompt to download free version by sign up, with user consent [#4](../../issues/4) [#10](../../issues/10)
 
-#### 1.2.1.2. Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
+#### Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
 
 - Event Log Explorer [#10](../../issues/10) [#14](../../issues/14)
 
