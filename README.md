@@ -1,13 +1,13 @@
-# WINSIFT ForensicsSetup Beta 0.2
+# WINSIFT ForensicsSetup Beta 0.3
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.2](#winsift-forensicssetup-beta-02)
+- [WINSIFT ForensicsSetup Beta 0.3](#winsift-forensicssetup-beta-03)
   - [Contents](#contents)
   - [Description](#description)
     - [Licencing](#licencing)
       - [Licenced Software (Included) - Free Licence - Non-Commercial Use](#licenced-software-included---free-licence---non-commercial-use)
-      - [Licenced Software (In-Progress) - Free Licence - Non-Commercial Use](#licenced-software-in-progress---free-licence---non-commercial-use)
+      - [1.2.1.2. Licenced Software (In-Progress) - Free Licence - Non-Commercial Use](#1212-licenced-software-in-progress---free-licence---non-commercial-use)
       - [Licenced Software (Not Included)](#licenced-software-not-included)
     - [Unlicenced Software (Included)](#unlicenced-software-included)
     - [Unlicenced Software (In Progress)](#unlicenced-software-in-progress)
