@@ -9,10 +9,93 @@ function Get-ZippedDownload([String] $name, [String] $dl_url)
     #Extract Zip    
     Write-Host Extracting release files
     Expand-Archive $zip -Force
-       
-    # Removing temp files
+    
+    Write-Host Removing temp files
     Remove-Item $zip -Force
 }
+
+function Install-MSI([string] $name, [string]$msiargs)
+{
+    #Checks Directory Config
+    $startloc = "$($pwd)"
+    Set-Location "$($pwd)\$($name)"
+    $dircontents = Get-ChildItem
+
+    #Sees if zipfile contains another sub-directory
+    if ($dircontents.Attributes -like "Directory" -and $dircontents.Name -like "*$($name)*" ) 
+    {
+        Set-Location $dircontents.Name 
+        $dircontents = Get-ChildItem
+    }
+
+    #Finds installer and runs
+    $installer = Get-ChildItem | Where-Object { $_.name -like "*$($name)*"} | Where-Object { $_.Extension -like "*.msi*" -or $_.Extension -like "*.exe*" } 
+    if($dircontents.Extension -like "*.exe*")
+    {
+        Write-Host "Installing $($installer.name), Please Wait"
+        Start-Process "$($pwd)\$($installer.name)"  -ArgumentList "$($msiargs)" -wait  
+    }
+    elseif($dircontents.Extension -like "*.msi*")
+    {
+        #placeholder
+    }
+    else 
+    {
+        $Global:errorlog.add("$($name) : MSI not present") | Out-Null
+    }
+    Set-Location "$($startloc)"
+}
+function Get-BundledDownload([String] $name, [String] $dl_url)
+{
+    #downloads raw exe files
+    $exe = "$($name).exe"
+    New-Item -Path "$($pwd)\" -Name "$($name)" -ItemType "directory"
+
+    Write-Host Downloading $name
+    Invoke-WebRequest $dl_url -OutFile $($name)\$exe
+}
+function Get-Package([String] $name, [String] $url,[String] $linkmember,[String] $type, [string] $msiargs,[String] $likefilter, [String] $notfilter)
+{
+    #Parse vendor website for package based on filter
+    $webresponse =  Invoke-WebRequest "$($url)" -useBasicParsing 
+    if($notfilter -eq "") 
+    {
+        $dl_url = $webresponse.Links | Where-Object "$($linkmember)" -Like "*$($likefilter)*"
+    }     
+    else 
+    {
+        $dl_url = $webresponse.Links | Where-Object "$($linkmember)" -Like "*$($likefilter)*" | Where-Object href -notlike "*$($notfilter)*"
+    }
+
+    if ($dl_url[0].href -notlike "*http*")
+    {
+        $dl_url[0].href = "$($url)\$($dl_url.href)"
+    }
+
+    #tests for more than one URL
+    if ($null -ne $dl_url[1])
+    {
+        write-host "$($name) failed contact developer with the following error: More than 1 URL for $($name), See below table"
+        write-output $dl_url | Format-Table
+        $Global:errorlog.add("$($name) : More than 1 URL in object") | Out-Null
+        return #exit function
+    }
+    else 
+    {
+        #download the vendor URL
+        if($type -eq "exe") 
+        {
+            Get-BundledDownload "$($name)" "$($dl_url.href)" 
+        }         
+        elseif ($type -eq "zip") 
+        {
+            Get-ZippedDownload "$($name)" "$($dl_url.href)" 
+        }         
+    } 
+    Install-MSI  "$($name)" "$($msiargs)"
+    Remove-Item "$($pwd)\$($name)" -Recurse -Force
+}
+
 function Get-CyLR
 {
     # Check Latest Windows x64 release
@@ -34,14 +117,6 @@ function Get-CyLR
 
     # Removing temp files
     Remove-Item $zip -Force
-}
-function Get-Dcode()
-{
-    #check for the latest version
-    $webresponse =  Invoke-WebRequest "https://www.digital-detective.net/dcode" -useBasicParsing 
-    $dl_url = $webresponse.Links | Where-Object href -Like "*download*" | Where-Object href -notlike "*downloads*"
-
-    Get-ZippedDownload "Dcode" $dl_url.href
 }
 
 function Get-SansResources()
@@ -86,6 +161,9 @@ function Get-SansResources()
   
 }
 
+#Init errorlog for printing at end of script
+$Global:errorlog = New-Object collections.arraylist
+$Global:errorlog.add("The Following packages have errors, please check the above output") | Out-Null
 
 Import-Module BitsTransfer
 
@@ -101,11 +179,14 @@ choco install exiftoolgui
 
 # Create a working directory for other executables then work there
 New-Item -Path "C:\" -Name "NonChoco_Tools" -ItemType "directory"
-Set-Location C:\NonChoco_Tools
+Set-Location C:\Test
 
 # Start Getting and Installing other Executables
+# Get Package Syntax
+# Get-Package name url linkmember type msiargs likefilter notfilter)
 Get-CyLR
-Get-Dcode
+Get-Package dcode "https://www.digital-detective.net/dcode" "href" "zip" '/silent' "download" "downloads"
+Get-Package "Arsenal" "https://arsenalrecon.com/downloads/" "outerHTML" "zip" "/?" "button_0"
 Get-SansResources
 
 
