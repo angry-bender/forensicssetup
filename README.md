@@ -1,22 +1,34 @@
-# WINSIFT ForensicsSetup Beta 0.3
+# WINSIFT ForensicsSetup Beta 0.3.1
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.3](#winsift-forensicssetup-beta-03)
+- [WINSIFT ForensicsSetup Beta 0.3.1](#winsift-forensicssetup-beta-031)
   - [Contents](#contents)
+  - [Announcements](#announcements)
   - [Description](#description)
     - [Licencing](#licencing)
       - [Licenced Software (Included) - Free Licence - Non-Commercial Use](#licenced-software-included---free-licence---non-commercial-use)
-      - [Licenced Software (In-Progress) - Free Licence - Non-Commercial Use](#licenced-software-in-progress---free-licence---non-commercial-use)
       - [Licenced Software (Not Included)](#licenced-software-not-included)
     - [Unlicenced Software (Included)](#unlicenced-software-included)
     - [Unlicenced Software (In Progress)](#unlicenced-software-in-progress)
-    - [Announcements](#announcements)
     - [In Development](#in-development)
     - [Feedback / tool Requests](#feedback--tool-requests)
   - [Pre-requisites](#pre-requisites)
   - [Usage](#usage)
   - [Developer contact](#developer-contact)
+
+## Announcements
+
+Implimented the following software;
+
+- Python2.7
+- Python3.8
+- Autopsy
+- Rekall Forensics
+- oclHashcat-plus
+- EventLogExplorer
+
+Created JSON file, for Modular Package use.
 
 ## Description
 
@@ -32,11 +44,7 @@ If you wish to use this script for commercial-use the following software require
 
 - Arsenal Image Mounter
 - FTK (With marketing sign up) - Will work on user prompt to download free version by sign up, with user consent [#4](../../issues/4) [#10](../../issues/10)
-
-#### Licenced Software (In-Progress) - Free Licence - Non-Commercial Use
-
-- Event Log Explorer [#10](../../issues/10) [#14](../../issues/14)
-
+- Event Log Explorer
 
 #### Licenced Software (Not Included)
 
@@ -97,18 +105,21 @@ If you wish to use this script for commercial-use the following software require
 - ExifTool GUI
 - Testdisk / PhotoRec
 - Dcode Date
+- Python2.7
+- Python3.8
+- Autopsy
+- Rekall Forensics
+- oclHashcat-plus
 
 ### Unlicenced Software (In Progress)
 
 - $LogFileParser
 - 7-Zip [#9](../../issues/9)
 - AbobeAIR [#9](../../issues/9)
-- Access Data Registry Viewer
 - Active State Active Perl
 - Adobe Reader [#9](../../issues/9)
 - Advanced Prefetch Analyzer
 - Auto_XOR_Decryptor.py
-- Autopsy
 - Autorip
 - BinText
 - Bulk Extractor
@@ -121,7 +132,6 @@ If you wish to use this script for commercial-use the following software require
 - EDD
 - EMFSpoolerView
 - ESECarve
-- Event Log Explorer
 - Findevil
 - FireFox [#9](../../issues/9)
 - FixEVT
@@ -150,14 +160,11 @@ If you wish to use this script for commercial-use the following software require
 - Mandiant RedLine
 - Mandiant RestorePoint Analyzer
 - Mandiant Shimcache Parser
-- MD5Deep & HashDeep
-- MD5summer
 - MFT View
 - MiTec Structured Storage View
 - MiTec Windows Registry Analyzer
 - Notepad++ [#9](../../issues/9)
 - Nuix 6
-- oclHashcat-plus
 - OpenOffice 4 [#9](../../issues/9)
 - OpenVPN GUI [#9](../../issues/9)
 - page_brute
@@ -168,11 +175,6 @@ If you wish to use this script for commercial-use the following software require
 - Prefetch Parser (McKinnon)
 - Process Hacker
 - Putty [#9](../../issues/9)
-- Python 2.7 pywin32-221
-- Python 2.7.13
-- Python 3.2.3 (64-bit)
-- Python 3.6.0 (64-bit)
-- Python Launcher
 - Python_EVTX (W. Ballenthin)
 - Quicktime [#9](../../issues/9)
 - RecoverRS
@@ -183,7 +185,6 @@ If you wish to use this script for commercial-use the following software require
 - Registry Decoder
 - RegRipper
 - RegRipperRunner
-- Rekall Forensics
 - rfc.pl
 - rifiuti
 - Rot13 String Decoder
@@ -253,10 +254,6 @@ If you wish to use this script for commercial-use the following software require
 - XORSearch
 - XORStrings
 - Yara
-
-### Announcements
-
-Beta Release
 
 ### In Development
 

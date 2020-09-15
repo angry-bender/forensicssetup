@@ -1,17 +1,33 @@
-function Get-ZippedDownload([String] $name, [String] $dl_url)
+function Get-CompressedDownload($package, [String] $dl_url)
 {
-    #Download Zip    
-    $zip = "$($name).zip"
-    
-    Write-Host Downloading $name
-    Invoke-WebRequest $dl_url -OutFile $zip
+    if($package.type -eq "zip")
+    {
+        #Filetype    
+        $file = "$($package.name).zip"
+    }
+    elseif ($package.type -like "7z") 
+    {
+        #Filetype    
+        $file = "$($package.name).7z"
+    }
+   
+    Write-Host Downloading $package.name
+    Invoke-WebRequest $dl_url -OutFile $file
 
     #Extract Zip    
     Write-Host Extracting release files
-    Expand-Archive $zip -Force
-    
+
+    if($package.type -eq "zip")
+    {
+        Expand-Archive $file -Force
+    }
+    elseif ($package.type -eq "7z") 
+    {
+        Start-Process "7z.exe"  -ArgumentList "x $($file)" -wait  
+    }
+
     Write-Host Removing temp files
-    Remove-Item $zip -Force
+    Remove-Item $file -Force
 }
 
 function Install-MSI([string] $name, [string]$msiargs)
@@ -33,7 +49,9 @@ function Install-MSI([string] $name, [string]$msiargs)
     if($dircontents.Extension -like "*.exe*")
     {
         Write-Host "Installing $($installer.name), Please Wait"
-        Start-Process "$($pwd)\$($installer.name)"  -ArgumentList "$($msiargs)" -wait  
+        Start-Process "$($pwd)\$($installer.name)"  -ArgumentList "$($msiargs)" -wait
+        $status = "$($name) Intalled by MSI"
+
     }
     elseif($dircontents.Extension -like "*.msi*")
     {
@@ -41,94 +59,114 @@ function Install-MSI([string] $name, [string]$msiargs)
     }
     else 
     {
-        $Global:errorlog.add("$($name) : MSI not present") | Out-Null
+        $status = "$($name) MSI not present"
     }
     Set-Location "$($startloc)"
+    return $status
 }
 function Get-BundledDownload([String] $name, [String] $dl_url)
 {
     #downloads raw exe files
     $exe = "$($name).exe"
-    New-Item -Path "$($pwd)\" -Name "$($name)" -ItemType "directory"
+    New-Item -Path "$($pwd)\" -Name "$($name)" -ItemType "directory" | Out-Null
 
     Write-Host Downloading $name
-    Invoke-WebRequest $dl_url -OutFile $($name)\$exe
+    Invoke-WebRequest $dl_url -OutFile "$($name)\$exe"
+
 }
-function Get-Package([String] $name, [String] $url,[String] $linkmember,[String] $type, [string] $msiargs,[String] $likefilter, [String] $notfilter)
+function Get-Package($package)
 {
-    #Parse vendor website for package based on filter
-    $webresponse =  Invoke-WebRequest "$($url)" -useBasicParsing 
-    if($notfilter -eq "") 
+    if($package.scrapewebsite -eq $true)
     {
-        $dl_url = $webresponse.Links | Where-Object "$($linkmember)" -Like "*$($likefilter)*"
-    }     
+        #Parse vendor website for package based on filter
+        $webresponse =  Invoke-WebRequest "$($package.url)" -useBasicParsing 
+        if($null -eq $package.notfilter) 
+        {
+            $dl_url = $webresponse.Links | Where-Object "$($package.linkmember)" -Like "*$($package.likefilter)*"
+        }     
+        else 
+        {
+            $dl_url = $webresponse.Links | Where-Object "$($package.linkmember)" -Like "*$($package.likefilter)*" | Where-Object href -notlike "*$($package.notfilter)*"
+        }
+
+        if ($dl_url[0].href -notlike "*http*")
+        {
+            $dl_url[0].href = "$($package.url)\$($dl_url.href)"
+        }
+    }
     else 
     {
-        $dl_url = $webresponse.Links | Where-Object "$($linkmember)" -Like "*$($likefilter)*" | Where-Object href -notlike "*$($notfilter)*"
+        $dl_url = "" | Select-Object Href
+        $dl_url.href = "$($package.url)"
     }
 
-    if ($dl_url[0].href -notlike "*http*")
-    {
-        $dl_url[0].href = "$($url)\$($dl_url.href)"
-    }
-
-    #tests for more than one URL
     if ($null -ne $dl_url[1])
     {
-        write-host "$($name) failed contact developer with the following error: More than 1 URL for $($name), See below table"
+        write-host "$($package.name) failed contact developer with the following error: More than 1 URL for $($package.name), See below table"
         write-output $dl_url | Format-Table
-        $Global:errorlog.add("$($name) : More than 1 URL in object") | Out-Null
+        $package.status = ("More than 1 URL in object")
         return #exit function
     }
     else 
     {
         #download the vendor URL
-        if($type -eq "exe") 
+        if($package.type -eq "exe") 
         {
-            Get-BundledDownload "$($name)" "$($dl_url.href)" 
+            Get-BundledDownload "$($package.name)" "$($dl_url.href)" 
         }         
-        elseif ($type -eq "zip") 
+        elseif ($package.type -eq "zip" -or $package.type -eq "7z") 
         {
-            Get-ZippedDownload "$($name)" "$($dl_url.href)" 
-        }         
+            Get-CompressedDownload $package "$($dl_url.href)"
+        }
+        $package.status = "Downloaded"        
     } 
-    Install-MSI  "$($name)" "$($msiargs)"
-    Remove-Item "$($pwd)\$($name)" -Recurse -Force
+    return $package.status
 }
 
-function Get-CyLR
+
+function Get-GitPackage($package)
 {
     # Check Latest Windows x64 release
-    $owner = "orlikoski"
-    $repo = "CyLR"
-    $releases = "https://api.github.com/repos/$($owner)/$($repo)/releases"
+    $releases = "https://api.github.com/repos/$($package.owner)/$($package.name)/releases"
 
-    Write-Host Determining latest release of $repo
-    $download = (Invoke-WebRequest $releases | ConvertFrom-Json)[0].assets[2].browser_download_url
-    $name = (Invoke-WebRequest $releases | ConvertFrom-Json)[0].name
-    $zip = "$($name).zip"
+    Write-Host Determining latest release of $package.name
+    $webresponse = (Invoke-WebRequest $releases | ConvertFrom-Json)
+    $download = $webresponse[0].assets[$($package.releasenum)].browser_download_url
+    # $name = $webresponse[0].name
+    $releasetype = $webresponse[0].assets[$($package.releasenum)].content_type
 
-    #Download Latest Release
-    Write-Host Downloading latest release of $name
-    Invoke-WebRequest $download -Out $zip
-
-    Write-Host Extracting release files
-    Expand-Archive $zip -Force
-
-    # Removing temp files
-    Remove-Item $zip -Force
+    if($releasetype -like "application/zip") 
+    {
+        $package.type = "zip"
+        Get-CompressedDownload $package "$($download)"
+        $package.status = "Downloaded"
+    }         
+    elseif ($releasetype -eq "application/octet-stream") 
+    {
+        $package.type = "exe"
+        Get-BundledDownload "$($package.name)" "$($download)"
+        $package.status = "Downloaded"
+    } 
+    else
+    {
+        write-host "$($package.name) failed contact developer with the following error: unknown release type $($releasetype), See below table"
+        write-output $webresponse[0].assets | Format-Table
+        $package.status = "Unknown release type"
+        return $package.status
+    }
+    return $package.status
 }
 
 function Get-SansResources()
 {
-    $DesktopPath = [Environment]::GetFolderPath("CommonDesktopDirectory")
+    $DesktopPath = [Environment]::GetFolderPath("desktop")
 
     $owner = "teamdfir"
-    $repo = "sift-saltstack"
-    $apiurl = "https://api.github.com/repos"
+    $name = "sift-saltstack"
+    $apiurl = "https://api.github.com/names"
 
     # Creates an object, for each of the relevant sans sift-saltstack trees
-    $masterbranch = (Invoke-WebRequest "$($apiurl)/$($owner)/$($repo)/branches/master"| ConvertFrom-Json)
+    $masterbranch = (Invoke-WebRequest "$($apiurl)/$($owner)/$($name)/branches/master"| ConvertFrom-Json)
     $sifttree = (Invoke-WebRequest $masterbranch.commit.commit.tree.url | ConvertFrom-Json).tree | Where-Object path -eq sift
     $filestree = (Invoke-WebRequest $sifttree.url | ConvertFrom-Json).tree | Where-Object path -eq files
     $sift2tree = (Invoke-WebRequest $filestree.url | ConvertFrom-Json).tree | Where-Object path -eq sift
@@ -147,7 +185,7 @@ function Get-SansResources()
     foreach ($poster in $posters)
     {
         $filename = $poster.path
-        Start-BitsTransfer -source "https://raw.githubusercontent.com/$($owner)/$($repo)/master/sift/files/sift/resources/$($filename)"
+        Start-BitsTransfer -source "https://raw.githubusercontent.com/$($owner)/$($name)/master/sift/files/sift/resources/$($filename)"
         Move-Item $filename "$($DesktopPath)\SANS_Posters"
     }
     
@@ -155,39 +193,73 @@ function Get-SansResources()
     foreach ($image in $images)
     {
         $filename = $image.path
-        Start-BitsTransfer -source "https://raw.githubusercontent.com/$($owner)/$($repo)/master/sift/files/sift/images/$($filename)"
+        Start-BitsTransfer -source "https://raw.githubusercontent.com/$($owner)/$($name)/master/sift/files/sift/images/$($filename)"
         Move-Item $filename "$($DesktopPath)\"
     }
   
 }
 
-#Init errorlog for printing at end of script
-$Global:errorlog = New-Object collections.arraylist
-$Global:errorlog.add("The Following packages have errors, please check the above output") | Out-Null
-
 Import-Module BitsTransfer
 
 # Get the choco packages installed
-choco install sysinternals
-choco install nirlauncher
-choco install photorec
-choco install plaso
-choco install ericzimmermantools --pre 
-choco install sleuthkit
-choco install network-miner
-choco install exiftoolgui
+foreach($package in $packages.ChocoPackages)
+{
+    choco install $package.name $package.args --yes
+}
+
+# Installs Sans Posters & Wallpaper
+Get-SansResources
+
+# Allows Python env to be used and overwrites windows store default on Windows 1903+
+Remove-Item "$($env:LOCALAPPDATA)\Microsoft\WindowsApps\python.exe"
+Remove-Item "$($env:LOCALAPPDATA)\Microsoft\WindowsApps\python3.exe"
+
+#installs python
+choco install python
+choco install python2
+
+# Make `refreshenv` available right away, by defining the $env:ChocolateyInstall
+# variable and importing the Chocolatey profile module.
+# Note: Using `. $PROFILE` instead *may* work, but isn't guaranteed to.
+$env:ChocolateyInstall = Convert-Path "$((Get-Command choco).Path)\..\.."   
+Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+
+# refreshenv is now an alias for Update-SessionEnvironment
+# (rather than invoking refreshenv.cmd, the *batch file* for use with cmd.exe)
+# This should make git.exe accessible via the refreshed $env:PATH, so that it
+# can be called by name only.
+refreshenv
 
 # Create a working directory for other executables then work there
 New-Item -Path "C:\" -Name "NonChoco_Tools" -ItemType "directory"
-Set-Location C:\Test
+Set-Location C:\NonChoco_Tools
 
 # Start Getting and Installing other Executables
-# Get Package Syntax
-# Get-Package name url linkmember type msiargs likefilter notfilter)
-Get-CyLR
-Get-Package dcode "https://www.digital-detective.net/dcode" "href" "zip" '/silent' "download" "downloads"
-Get-Package "Arsenal" "https://arsenalrecon.com/downloads/" "outerHTML" "zip" "/?" "button_0"
-Get-SansResources
+# Install Web Packages
+foreach($package in $packages.WebPackages)
+{
+#     $package.status = Get-Package $package  
+    if($package.ismsi -eq $true)
+    {
+        Install-MSI  "$($package.name)" "$($package.msiargs)"
+        Remove-Item "$($pwd)\$($package.name)" -Recurse -Force
+    }
+
+}
+
+#Install Git Packages
+foreach($package in $packages.GitPackages)
+{
+    $package.status = Get-GitPackage $package
+    if($package.ismsi -eq $true)
+        {
+            $package.status = Install-MSI  "$($package.name)" "$($package.msiargs)"
+            Remove-Item "$($pwd)\$($package.name)" -Recurse -Force
+        }
+}
+
+write-output $packages.GitPackages $packages.WebPackages $packages.ChocoPackages | Format-Table -property name,status
+
 
 
 
