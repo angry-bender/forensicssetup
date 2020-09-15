@@ -25,7 +25,7 @@ Implimented the following software;
 - Python3.8
 - Autopsy
 - Rekall Forensics
-- oclHashcat-plus
+- Hashcat
 - EventLogExplorer
 
 Created JSON file, for Modular Package use.
