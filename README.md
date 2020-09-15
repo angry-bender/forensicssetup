@@ -146,8 +146,6 @@ If you wish to use this script for commercial-use the following software require
 - Mandiant RedLine
 - Mandiant RestorePoint Analyzer
 - Mandiant Shimcache Parser
-- MD5Deep & HashDeep
-- MD5summer
 - MFT View
 - MiTec Structured Storage View
 - MiTec Windows Registry Analyzer
