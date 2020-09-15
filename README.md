@@ -1,21 +1,34 @@
-# WINSIFT ForensicsSetup Beta 0.3
+# WINSIFT ForensicsSetup Beta 0.3.1
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.3](#winsift-forensicssetup-beta-03)
+- [WINSIFT ForensicsSetup Beta 0.3.1](#winsift-forensicssetup-beta-031)
   - [Contents](#contents)
+  - [Announcements](#announcements)
   - [Description](#description)
     - [Licencing](#licencing)
       - [Licenced Software (Included) - Free Licence - Non-Commercial Use](#licenced-software-included---free-licence---non-commercial-use)
       - [Licenced Software (Not Included)](#licenced-software-not-included)
     - [Unlicenced Software (Included)](#unlicenced-software-included)
     - [Unlicenced Software (In Progress)](#unlicenced-software-in-progress)
-    - [Announcements](#announcements)
     - [In Development](#in-development)
     - [Feedback / tool Requests](#feedback--tool-requests)
   - [Pre-requisites](#pre-requisites)
   - [Usage](#usage)
   - [Developer contact](#developer-contact)
+
+## Announcements
+
+Implimented the following software;
+
+- Python2.7
+- Python3.8
+- Autopsy
+- Rekall Forensics
+- oclHashcat-plus
+- EventLogExplorer
+
+Created JSON file, for Modular Package use.
 
 ## Description
 
@@ -96,6 +109,7 @@ If you wish to use this script for commercial-use the following software require
 - Python3.8
 - Autopsy
 - Rekall Forensics
+- oclHashcat-plus
 
 ### Unlicenced Software (In Progress)
 
@@ -151,7 +165,6 @@ If you wish to use this script for commercial-use the following software require
 - MiTec Windows Registry Analyzer
 - Notepad++ [#9](../../issues/9)
 - Nuix 6
-- oclHashcat-plus
 - OpenOffice 4 [#9](../../issues/9)
 - OpenVPN GUI [#9](../../issues/9)
 - page_brute
@@ -241,10 +254,6 @@ If you wish to use this script for commercial-use the following software require
 - XORSearch
 - XORStrings
 - Yara
-
-### Announcements
-
-Beta Release
 
 ### In Development
 
