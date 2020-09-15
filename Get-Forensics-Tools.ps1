@@ -186,6 +186,8 @@ choco install ericzimmermantools --pre
 choco install sleuthkit
 choco install network-miner
 choco install exiftoolgui
+choco install python
+choco install python2
 
 # Create a working directory for other executables then work there
 New-Item -Path "C:\" -Name "NonChoco_Tools" -ItemType "directory"

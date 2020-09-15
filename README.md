@@ -92,6 +92,8 @@ If you wish to use this script for commercial-use the following software require
 - ExifTool GUI
 - Testdisk / PhotoRec
 - Dcode Date
+- Python2.7
+- Python3.8
 
 ### Unlicenced Software (In Progress)
 
@@ -163,11 +165,6 @@ If you wish to use this script for commercial-use the following software require
 - Prefetch Parser (McKinnon)
 - Process Hacker
 - Putty [#9](../../issues/9)
-- Python 2.7 pywin32-221
-- Python 2.7.13
-- Python 3.2.3 (64-bit)
-- Python 3.6.0 (64-bit)
-- Python Launcher
 - Python_EVTX (W. Ballenthin)
 - Quicktime [#9](../../issues/9)
 - RecoverRS
