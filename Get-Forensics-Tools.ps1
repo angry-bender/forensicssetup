@@ -1,17 +1,33 @@
-function Get-ZippedDownload([String] $name, [String] $dl_url)
+function Get-CompressedDownload([String] $name, [String] $dl_url, [string]$type)
 {
-    #Download Zip    
-    $zip = "$($name).zip"
-    
+    if($type -eq "zip")
+    {
+        #Filetype    
+        $file = "$($name).zip"
+    }
+    elseif ($type -like "7z") 
+    {
+        #Filetype    
+        $file = "$($name).7z"
+    }
+   
     Write-Host Downloading $name
-    Invoke-WebRequest $dl_url -OutFile $zip
+    Invoke-WebRequest $dl_url -OutFile $file
 
     #Extract Zip    
     Write-Host Extracting release files
-    Expand-Archive $zip -Force
-    
+
+    if($type -eq "zip")
+    {
+        Expand-Archive $file -Force
+    }
+    elseif ($type -eq "7z") 
+    {
+        Start-Process "7z.exe"  -ArgumentList "x $($file)" -wait  
+    }
+
     Write-Host Removing temp files
-    Remove-Item $zip -Force
+    Remove-Item $file -Force
 }
 
 function Install-MSI([string] $name, [string]$msiargs)
@@ -55,7 +71,7 @@ function Get-BundledDownload([String] $name, [String] $dl_url)
     Invoke-WebRequest $dl_url -OutFile "$($name)\$exe"
 
 }
-function Get-Package([String] $name, [String] $url,[String] $linkmember,[String] $type,[string] $msiargs,[String] $likefilter,[String] $notfilter,[string] $scrapetest)
+function Get-Package([String] $name, [String] $url,[String] $linkmember,[String] $type,[string] $msiargs,[String] $likefilter,[String] $notfilter,[string] $scrapetest, [string] $ismsi )
 {
     if($scrapetest -eq "$true")
     {
@@ -96,13 +112,17 @@ function Get-Package([String] $name, [String] $url,[String] $linkmember,[String]
         {
             Get-BundledDownload "$($name)" "$($dl_url.href)" 
         }         
-        elseif ($type -eq "zip") 
+        elseif ($type -eq "zip" -or $type -eq "7z") 
         {
-            Get-ZippedDownload "$($name)" "$($dl_url.href)" 
+            Get-CompressedDownload "$($name)" "$($dl_url.href)" "$type"
         }         
     } 
-    Install-MSI  "$($name)" "$($msiargs)"
-    Remove-Item "$($pwd)\$($name)" -Recurse -Force
+
+    if($ismsi -eq $true)
+    {
+        Install-MSI  "$($name)" "$($msiargs)"
+        Remove-Item "$($pwd)\$($name)" -Recurse -Force
+    }
 }
 
 
@@ -122,7 +142,7 @@ function Get-GitPackage([string] $owner, [string]$repo, [int32]$releasenum, [str
 
     if($releasetype -like "application/zip") 
     {
-        Get-ZippedDownload "$($repo)" "$($download)" 
+        Get-CompressedDownload "$($repo)" "$($download)" "zip" 
     }         
     elseif ($releasetype -eq "application/octet-stream") 
     {
@@ -229,15 +249,17 @@ Set-Location C:\NonChoco_Tools
 
 # Start Getting and Installing other Executables
 # Get Package Syntax
-# Get-Package name url linkmember type msiargs likefilter notfilter scapewebsite=t/f)
+# Get-Package name url linkmember type msiargs likefilter notfilter scapewebsite=t/f ismsi=t/f)
 # Get-GitPackage Onwer Name ReleaseNum(from Git api) File ismsi=t/f
 
+Get-SansResources
 Get-GitPackage "orlikoski" "CyLR" "2" $false
 Get-GitPackage "google" "rekall" "1" $true
-Get-Package "dcode" "https://www.digital-detective.net/dcode" "href" "zip" '/silent' "download" "downloads" "$true"
-Get-Package "Arsenal" "https://arsenalrecon.com/downloads/" "outerHTML" "zip" "/silent" "button_0" "$null" "$true"
-Get-Package "Event Log Explorer" "https://eventlogxp.com/download/elex_setup.exe" "$null" "exe" '/silent' "null" "$false"
-Get-SansResources
+Get-Package "dcode" "https://www.digital-detective.net/dcode" "href" "zip" '/silent' "download" "downloads" $true $false
+Get-Package "Arsenal" "https://arsenalrecon.com/downloads/" "outerHTML" "zip" "/silent" "button_0" $null $true $false
+Get-Package "Event Log Explorer" "https://eventlogxp.com/download/elex_setup.exe" $null "exe" '/silent' $null $false $false
+# #Cannot scrape website for latest version of hashcat
+Get-Package "Hashcat" "https://hashcat.net/files/hashcat-6.1.1.7z" "$null" "7z" '/silent' $null $false $false
 
 
 
