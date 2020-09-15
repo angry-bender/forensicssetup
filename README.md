@@ -100,7 +100,6 @@ If you wish to use this script for commercial-use the following software require
 - $LogFileParser
 - 7-Zip [#9](../../issues/9)
 - AbobeAIR [#9](../../issues/9)
-- Access Data Registry Viewer
 - Active State Active Perl
 - Adobe Reader [#9](../../issues/9)
 - Advanced Prefetch Analyzer
