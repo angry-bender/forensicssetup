@@ -94,6 +94,7 @@ If you wish to use this script for commercial-use the following software require
 - Dcode Date
 - Python2.7
 - Python3.8
+- Autopsy
 
 ### Unlicenced Software (In Progress)
 
@@ -104,7 +105,6 @@ If you wish to use this script for commercial-use the following software require
 - Adobe Reader [#9](../../issues/9)
 - Advanced Prefetch Analyzer
 - Auto_XOR_Decryptor.py
-- Autopsy
 - Autorip
 - BinText
 - Bulk Extractor

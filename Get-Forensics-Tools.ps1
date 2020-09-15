@@ -188,6 +188,7 @@ choco install network-miner
 choco install exiftoolgui
 choco install python
 choco install python2
+choco install autopsy
 
 # Create a working directory for other executables then work there
 New-Item -Path "C:\" -Name "NonChoco_Tools" -ItemType "directory"
