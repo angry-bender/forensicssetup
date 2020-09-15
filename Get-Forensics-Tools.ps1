@@ -106,11 +106,9 @@ function Get-Package([String] $name, [String] $url,[String] $linkmember,[String]
 }
 
 
-function Get-CyLR
+function Get-GitPackage([string] $owner, [string]$repo)
 {
     # Check Latest Windows x64 release
-    $owner = "orlikoski"
-    $repo = "CyLR"
     $releases = "https://api.github.com/repos/$($owner)/$($repo)/releases"
 
     Write-Host Determining latest release of $repo
@@ -189,6 +187,7 @@ choco install exiftoolgui
 choco install python
 choco install python2
 choco install autopsy
+choco install pip
 
 # Create a working directory for other executables then work there
 New-Item -Path "C:\" -Name "NonChoco_Tools" -ItemType "directory"
@@ -196,8 +195,8 @@ Set-Location C:\NonChoco_Tools
 
 # Start Getting and Installing other Executables
 # Get Package Syntax
-# Get-Package name url linkmember type msiargs likefilter notfilter)
-Get-CyLR
+# Get-Package name url linkmember type msiargs likefilter notfilter scapewebsite=t/f)
+Get-GitPackage "orlikoski" "CyLR"
 Get-Package "dcode" "https://www.digital-detective.net/dcode" "href" "zip" '/?' "download" "downloads" "true"
 Get-Package "Arsenal" "https://arsenalrecon.com/downloads/" "outerHTML" "zip" "/silent" "button_0" "$null" "true"
 Get-Package "Event Log Explorer" "https://eventlogxp.com/download/elex_setup.exe" "$null" "exe" '/silent' "null" "false"
