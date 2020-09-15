@@ -118,7 +118,6 @@ If you wish to use this script for commercial-use the following software require
 - EDD
 - EMFSpoolerView
 - ESECarve
-- Event Log Explorer
 - Findevil
 - FireFox [#9](../../issues/9)
 - FixEVT
