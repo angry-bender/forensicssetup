@@ -49,7 +49,7 @@ function Get-BundledDownload([String] $name, [String] $dl_url)
 {
     #downloads raw exe files
     $exe = "$($name).exe"
-    New-Item -Path "$($pwd)\" -Name "$($name)" -ItemType "directory"
+    New-Item -Path "$($pwd)\" -Name "$($name)" -ItemType "directory" | Out-Null
 
     Write-Host Downloading $name
     Invoke-WebRequest $dl_url -OutFile "$($name)\$exe"
@@ -57,7 +57,7 @@ function Get-BundledDownload([String] $name, [String] $dl_url)
 }
 function Get-Package([String] $name, [String] $url,[String] $linkmember,[String] $type,[string] $msiargs,[String] $likefilter,[String] $notfilter,[string] $scrapetest)
 {
-    if($scrapetest -like "*true*")
+    if($scrapetest -eq "$true")
     {
         #Parse vendor website for package based on filter
         $webresponse =  Invoke-WebRequest "$($url)" -useBasicParsing 
@@ -106,25 +106,41 @@ function Get-Package([String] $name, [String] $url,[String] $linkmember,[String]
 }
 
 
-function Get-GitPackage([string] $owner, [string]$repo)
+function Get-GitPackage([string] $owner, [string]$repo, [int32]$releasenum, [string]$ismsi)
 {
     # Check Latest Windows x64 release
     $releases = "https://api.github.com/repos/$($owner)/$($repo)/releases"
 
     Write-Host Determining latest release of $repo
-    $download = (Invoke-WebRequest $releases | ConvertFrom-Json)[0].assets[2].browser_download_url
-    $name = (Invoke-WebRequest $releases | ConvertFrom-Json)[0].name
-    $zip = "$($name).zip"
+    $webresponse = (Invoke-WebRequest $releases | ConvertFrom-Json)
+    $download = $webresponse[0].assets[$($releasenum)].browser_download_url
+    $name = $webresponse[0].name
+    $releasetype = $webresponse[0].assets[$($releasenum)].content_type
 
     #Download Latest Release
     Write-Host Downloading latest release of $name
-    Invoke-WebRequest $download -Out $zip
 
-    Write-Host Extracting release files
-    Expand-Archive $zip -Force
+    if($releasetype -like "application/zip") 
+    {
+        Get-ZippedDownload "$($repo)" "$($download)" 
+    }         
+    elseif ($releasetype -eq "application/octet-stream") 
+    {
+        Get-BundledDownload "$($repo)" "$($download)" 
+    } 
+    else
+    {
+        write-host "$($repo) failed contact developer with the following error: unknown release type ($releasetype), See below table"
+        write-output $webresponse[0].assets | Format-Table
+        $Global:errorlog.add("$($repo) : Unknown release type") | Out-Null
+        return #exit function
+    }
 
-    # Removing temp files
-    Remove-Item $zip -Force
+    if($ismsi -eq $true)
+    {
+        Install-MSI  "$($repo)" '\silent'
+        Remove-Item "$($pwd)\$($repo)" -Recurse -Force
+    }
 }
 
 function Get-SansResources()
@@ -184,10 +200,28 @@ choco install ericzimmermantools --pre
 choco install sleuthkit
 choco install network-miner
 choco install exiftoolgui
-choco install python
-choco install python2
 choco install autopsy
 choco install pip
+
+# Allows Python env to be used and overwrites windows store default on Windows 1903+
+Remove-Item "$($env:LOCALAPPDATA)\Microsoft\WindowsApps\python.exe"
+Remove-Item "$($env:LOCALAPPDATA)\Microsoft\WindowsApps\python3.exe"
+
+#installs python
+choco install python
+choco install python2
+
+# Make `refreshenv` available right away, by defining the $env:ChocolateyInstall
+# variable and importing the Chocolatey profile module.
+# Note: Using `. $PROFILE` instead *may* work, but isn't guaranteed to.
+$env:ChocolateyInstall = Convert-Path "$((Get-Command choco).Path)\..\.."   
+Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+
+# refreshenv is now an alias for Update-SessionEnvironment
+# (rather than invoking refreshenv.cmd, the *batch file* for use with cmd.exe)
+# This should make git.exe accessible via the refreshed $env:PATH, so that it
+# can be called by name only.
+refreshenv
 
 # Create a working directory for other executables then work there
 New-Item -Path "C:\" -Name "NonChoco_Tools" -ItemType "directory"
@@ -196,10 +230,13 @@ Set-Location C:\NonChoco_Tools
 # Start Getting and Installing other Executables
 # Get Package Syntax
 # Get-Package name url linkmember type msiargs likefilter notfilter scapewebsite=t/f)
-Get-GitPackage "orlikoski" "CyLR"
-Get-Package "dcode" "https://www.digital-detective.net/dcode" "href" "zip" '/?' "download" "downloads" "true"
-Get-Package "Arsenal" "https://arsenalrecon.com/downloads/" "outerHTML" "zip" "/silent" "button_0" "$null" "true"
-Get-Package "Event Log Explorer" "https://eventlogxp.com/download/elex_setup.exe" "$null" "exe" '/silent' "null" "false"
+# Get-GitPackage Onwer Name ReleaseNum(from Git api) File ismsi=t/f
+
+Get-GitPackage "orlikoski" "CyLR" "2" $false
+Get-GitPackage "google" "rekall" "1" $true
+Get-Package "dcode" "https://www.digital-detective.net/dcode" "href" "zip" '/silent' "download" "downloads" "$true"
+Get-Package "Arsenal" "https://arsenalrecon.com/downloads/" "outerHTML" "zip" "/silent" "button_0" "$null" "$true"
+Get-Package "Event Log Explorer" "https://eventlogxp.com/download/elex_setup.exe" "$null" "exe" '/silent' "null" "$false"
 Get-SansResources
 
 

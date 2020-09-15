@@ -95,6 +95,7 @@ If you wish to use this script for commercial-use the following software require
 - Python2.7
 - Python3.8
 - Autopsy
+- Rekall Forensics
 
 ### Unlicenced Software (In Progress)
 
@@ -173,7 +174,6 @@ If you wish to use this script for commercial-use the following software require
 - Registry Decoder
 - RegRipper
 - RegRipperRunner
-- Rekall Forensics
 - rfc.pl
 - rifiuti
 - Rot13 String Decoder
