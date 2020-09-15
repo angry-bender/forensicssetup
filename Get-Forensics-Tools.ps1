@@ -52,24 +52,33 @@ function Get-BundledDownload([String] $name, [String] $dl_url)
     New-Item -Path "$($pwd)\" -Name "$($name)" -ItemType "directory"
 
     Write-Host Downloading $name
-    Invoke-WebRequest $dl_url -OutFile $($name)\$exe
+    Invoke-WebRequest $dl_url -OutFile "$($name)\$exe"
+
 }
-function Get-Package([String] $name, [String] $url,[String] $linkmember,[String] $type, [string] $msiargs,[String] $likefilter, [String] $notfilter)
+function Get-Package([String] $name, [String] $url,[String] $linkmember,[String] $type,[string] $msiargs,[String] $likefilter,[String] $notfilter,[string] $scrapetest)
 {
-    #Parse vendor website for package based on filter
-    $webresponse =  Invoke-WebRequest "$($url)" -useBasicParsing 
-    if($notfilter -eq "") 
+    if($scrapetest -like "*true*")
     {
-        $dl_url = $webresponse.Links | Where-Object "$($linkmember)" -Like "*$($likefilter)*"
-    }     
+        #Parse vendor website for package based on filter
+        $webresponse =  Invoke-WebRequest "$($url)" -useBasicParsing 
+        if($notfilter -eq "") 
+        {
+            $dl_url = $webresponse.Links | Where-Object "$($linkmember)" -Like "*$($likefilter)*"
+        }     
+        else 
+        {
+            $dl_url = $webresponse.Links | Where-Object "$($linkmember)" -Like "*$($likefilter)*" | Where-Object href -notlike "*$($notfilter)*"
+        }
+
+        if ($dl_url[0].href -notlike "*http*")
+        {
+            $dl_url[0].href = "$($url)\$($dl_url.href)"
+        }
+    }
     else 
     {
-        $dl_url = $webresponse.Links | Where-Object "$($linkmember)" -Like "*$($likefilter)*" | Where-Object href -notlike "*$($notfilter)*"
-    }
-
-    if ($dl_url[0].href -notlike "*http*")
-    {
-        $dl_url[0].href = "$($url)\$($dl_url.href)"
+        $dl_url = "" | Select-Object Href
+        $dl_url.href = "$($url)"
     }
 
     #tests for more than one URL
@@ -96,6 +105,7 @@ function Get-Package([String] $name, [String] $url,[String] $linkmember,[String]
     Remove-Item "$($pwd)\$($name)" -Recurse -Force
 }
 
+
 function Get-CyLR
 {
     # Check Latest Windows x64 release
@@ -121,7 +131,7 @@ function Get-CyLR
 
 function Get-SansResources()
 {
-    $DesktopPath = [Environment]::GetFolderPath("CommonDesktopDirectory")
+    $DesktopPath = [Environment]::GetFolderPath("desktop")
 
     $owner = "teamdfir"
     $repo = "sift-saltstack"
@@ -179,14 +189,15 @@ choco install exiftoolgui
 
 # Create a working directory for other executables then work there
 New-Item -Path "C:\" -Name "NonChoco_Tools" -ItemType "directory"
-Set-Location C:\Test
+Set-Location C:\NonChoco_Tools
 
 # Start Getting and Installing other Executables
 # Get Package Syntax
 # Get-Package name url linkmember type msiargs likefilter notfilter)
 Get-CyLR
-Get-Package dcode "https://www.digital-detective.net/dcode" "href" "zip" '/silent' "download" "downloads"
-Get-Package "Arsenal" "https://arsenalrecon.com/downloads/" "outerHTML" "zip" "/?" "button_0"
+Get-Package "dcode" "https://www.digital-detective.net/dcode" "href" "zip" '/?' "download" "downloads" "true"
+Get-Package "Arsenal" "https://arsenalrecon.com/downloads/" "outerHTML" "zip" "/silent" "button_0" "$null" "true"
+Get-Package "Event Log Explorer" "https://eventlogxp.com/download/elex_setup.exe" "$null" "exe" '/silent' "null" "false"
 Get-SansResources
 
 
