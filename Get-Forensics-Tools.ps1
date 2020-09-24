@@ -228,9 +228,9 @@ $WShell = New-Object -com "Wscript.Shell"
 & powercfg -change -hibernate-timeout-dc 0 | Out-Null
 
 #installs packages that require refreshenv
-choco install boxstarter
-choco install python
-choco install python2
+choco install boxstarter --yes
+choco install python --yes
+choco install python2 --yes
 
 # Make `refreshenv` available right away, by defining the $env:ChocolateyInstall
 # variable and importing the Chocolatey profile module.
