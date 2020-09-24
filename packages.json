@@ -58,7 +58,16 @@
             "ismsi":true,
             "msiargs":"/silent",
             "status":""
+        },
+        {
+            "Name":"Plaso",
+            "url":"https://github.com/log2timeline/plaso/releases/download/20191203/plaso-20191203-py3.7-amd64.zip",
+            "scrapewebsite":false,
+            "type":"zip",
+            "ismsi":false,
+            "status":""
         }
+        
     ],
     "ChocoPackages":
     [
@@ -72,10 +81,6 @@
         },
         {
             "name":"photorec",
-            "status":""
-        },
-        {
-            "name":"plaso",
             "status":""
         },
         {
