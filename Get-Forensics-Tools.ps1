@@ -254,7 +254,7 @@ foreach($package in $packages.ChocoPackages)
     #Stopsscreenlock betwen scripts
     $WShell.sendkeys("{SCROLLLOCK}")
 
-    choco install $package.name $package.args --yes
+    choco install $package.name $package.args --yes --ignore-checksums
     if($LASTEXITCODE -ne 0)
     {
         $package.status = "ERROR: Choco Install Failed"
