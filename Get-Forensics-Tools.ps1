@@ -203,6 +203,7 @@ function Restore-ForensicsMachine()
 {
     #error  import error & =
     Import-Module "$($Env:ProgramData)\Boxstarter\Boxstarter.WinConfig\Boxstarter.WinConfig.psm1"
+    Import-Module "$($Env:ProgramData)\Boxstarter\Boxstarter.Common\Boxstarter.Common.psm1"
     Set-WindowsExplorerOptions -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowHiddenFilesFoldersDrive
     Disable-BingSearch
     Disable-GameBarTips
