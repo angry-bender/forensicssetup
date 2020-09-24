@@ -202,7 +202,7 @@ function Get-SansResources()
 function Restore-ForensicsMachine()
 {
     #error  import error & =
-    Import-Module "$($Env:ProgramData)\Boxstarter.Winconfig\Boxstarter\Boxstarter.WinConfig\Boxstarter.WinConfig.psm1"
+    Import-Module "$($Env:ProgramData)\Boxstarter\Boxstarter.WinConfig\Boxstarter.WinConfig.psm1"
     Set-WindowsExplorerOptions -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowHiddenFilesFoldersDrive
     Disable-BingSearch
     Disable-GameBarTips
