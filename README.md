@@ -1,8 +1,8 @@
-# WINSIFT ForensicsSetup Beta 0.3.1
+# WINSIFT ForensicsSetup Beta 0.3.1.2
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.3.1](#winsift-forensicssetup-beta-031)
+- [WINSIFT ForensicsSetup Beta 0.3.1.2](#winsift-forensicssetup-beta-0312)
   - [Contents](#contents)
   - [Announcements](#announcements)
   - [Description](#description)
@@ -29,6 +29,9 @@ Implimented the following software;
 - EventLogExplorer
 
 Created JSON file, for Modular Package use.
+Fixed error logging
+Stop sleep on machine
+Stop screentimeout by pressing scrolllock between each script
 
 ## Description
 
