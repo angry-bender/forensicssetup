@@ -59,7 +59,7 @@ function Install-MSI([string] $name, [string]$msiargs)
     }
     else 
     {
-        $status = "$($name) MSI not present"
+        $status = "ERROR: $($name) MSI not present"
     }
     Set-Location "$($startloc)"
     return $status
@@ -151,7 +151,7 @@ function Get-GitPackage($package)
     {
         write-host "$($package.name) failed contact developer with the following error: unknown release type $($releasetype), See below table"
         write-output $webresponse[0].assets | Format-Table
-        $package.status = "Unknown release type"
+        $package.status = "ERROR: Unknown release type"
         return $package.status
     }
     return $package.status
