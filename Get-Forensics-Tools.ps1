@@ -202,7 +202,7 @@ function Get-SansResources()
 function Restore-ForensicsMachine()
 {
     #error  import error & =
-    Import-Module Boxstarter.Winconfig
+    Import-Module ($Env:ProgramData)\Boxstarter.Winconfig\Boxstarter\Boxstarter.WinConfig\Boxstarter.WinConfig.psm1
     Set-WindowsExplorerOptions -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowHiddenFilesFoldersDrive
     Disable-BingSearch
     Disable-GameBarTips
@@ -257,12 +257,12 @@ foreach($package in $packages.ChocoPackages)
     choco install $package.name $package.args --yes
     if($LASTEXITCODE -ne 0)
     {
-        $package.status == "ERROR: Choco Install Failed"
+        $package.status = "ERROR: Choco Install Failed"
     }
         
     else 
     {
-        $package.status == "Installed with Choco"     
+        $package.status = "Installed with Choco"     
     }
 }
 
