@@ -47,8 +47,11 @@ Implimented the following software;
 - [GUI Tools](#gui-tools-included)
 
 Implimented Explorer Fixes
+
 Fixed error logging
+
 Stop sleep on machine
+
 Stop screentimeout by pressing scrolllock between each script
 
 ## Description
