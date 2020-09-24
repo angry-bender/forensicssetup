@@ -1,8 +1,8 @@
-# WINSIFT ForensicsSetup Beta 0.4
+# WINSIFT ForensicsSetup Beta 0.4.1
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.4](#winsift-forensicssetup-beta-04)
+- [WINSIFT ForensicsSetup Beta 0.4.1](#winsift-forensicssetup-beta-041)
   - [Contents](#contents)
   - [Announcements](#announcements)
   - [Description](#description)
@@ -45,6 +45,7 @@ Implimented the following software;
 - Universal Extractor
 - WinMerge
 - [GUI Tools](#gui-tools-included)
+- AgentRansack
 
 Implimented Explorer Fixes
 
@@ -157,6 +158,7 @@ If you wish to use this script for commercial-use the following software require
 - skypecontactsview
 - Universal Extractor
 - WinMerge
+- AgentRansack
 
 ### GUI Tools Included
 
