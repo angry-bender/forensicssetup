@@ -209,6 +209,12 @@ function Restore-ForensicsMachine()
     Disable-GameBarTips
     Disable-ComputerRestore -Drive ${Env:SystemDrive}  
 }
+function New-Path($name)
+{
+    $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
+    $newpath = "$oldpath;c:\NonChoco_Tools\$($name)"
+    Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath
+}
 
 
 Import-Module BitsTransfer
@@ -308,6 +314,11 @@ foreach($package in $packages.GitPackages)
             $package.status = Install-MSI  "$($package.name)" "$($package.msiargs)"
             Remove-Item "$($pwd)\$($package.name)" -Recurse -Force
         }
+    elseif ($package.type -eq "zip" -or $package.type -eq "7z") 
+    {
+        New-Path $package.Name
+        $package.status = "Downloaded & added to cli path"
+    }
 }
 
 write-output $packages.GitPackages $packages.WebPackages $packages.ChocoPackages | Format-Table -property name,status
