@@ -24,7 +24,7 @@
 
 ### Choco packages that are broken [#18](../../issues/18)
 
-- [ ] Plaso - Maintainer Contacted - Workaround made
+- [x] Plaso - Maintainer Contacted - Workaround made
 - [ ] winbg- Maintainer Contacted
 - [ ] regripper- Maintainer Contacted
 - [ ] processhacker - Maintainer Contacted
