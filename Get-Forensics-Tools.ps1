@@ -204,11 +204,30 @@ Import-Module BitsTransfer
 #Initialise the packages object
 $packages=(Get-Content -Raw -Path .\packages.json | ConvertFrom-Json) 
 
+#Initalise the screenlock object
+$WShell = New-Object -com "Wscript.Shell"
+
+#Stops sleep
+Powercfg /Change standby-timeout-ac 0
+Powercfg /Change standby-timeout-dc 0
+
 
 # Get the choco packages installed
 foreach($package in $packages.ChocoPackages)
 {
+    #Stopsscreenlock betwen scripts
+    $WShell.sendkeys("{SCROLLLOCK}")
+
     choco install $package.name $package.args --yes
+    if($LASTEXITCODE -ne 0)
+    {
+        $package.status == "ERROR: Choco Install Failed"
+    }
+        
+    else 
+    {
+        $package.status == "Installed with Choco"     
+    }
 }
 
 # Installs Sans Posters & Wallpaper
@@ -242,7 +261,8 @@ Set-Location C:\NonChoco_Tools
 # Install Web Packages
 foreach($package in $packages.WebPackages)
 {
-#     $package.status = Get-Package $package  
+    $WShell.sendkeys("{SCROLLLOCK}")
+    $package.status = Get-Package $package    
     if($package.ismsi -eq $true)
     {
         $package.status = Install-MSI  "$($package.name)" "$($package.msiargs)"
@@ -254,6 +274,7 @@ foreach($package in $packages.WebPackages)
 #Install Git Packages
 foreach($package in $packages.GitPackages)
 {
+    $WShell.sendkeys("{SCROLLLOCK}")
     $package.status = Get-GitPackage $package
     if($package.ismsi -eq $true)
         {

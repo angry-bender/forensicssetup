@@ -64,44 +64,44 @@
     [
         {
             "name":"sysinternals",
-            "status":"Chocolatey"
+            "status":""
         },
         {
             "name":"nirlauncher",
-            "status":"Chocolatey"
+            "status":""
         },
         {
             "name":"photorec",
-            "status":"Chocolatey"
+            "status":""
         },
         {
             "name":"plaso",
-            "status":"Chocolatey"
+            "status":""
         },
         {
             "name":"ericzimmermantools",
             "args":"--pre",
-            "status":"Chocolatey"
+            "status":""
         },
         {
             "name":"sleuthkit",
-            "status":"Chocolatey"
+            "status":""
         },
         {
             "name":"network-miner",
-            "status":"Chocolatey"
+            "status":""
         },
         {
             "name":"exiftoolgui",
-            "status":"Chocolatey"
+            "status":""
         },
         {
             "name":"autopsy",
-            "status":"Chocolatey"
+            "status":""
         },
         {
             "name":"pip",
-            "status":"Chocolatey"
+            "status":""
         }
     ]
 }
