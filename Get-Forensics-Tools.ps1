@@ -229,6 +229,10 @@ $WShell = New-Object -com "Wscript.Shell"
 & powercfg -change -hibernate-timeout-ac 0 | Out-Null
 & powercfg -change -hibernate-timeout-dc 0 | Out-Null
 
+#Open internet exporer
+[System.Windows.MessageBox]::Show('Please setup Internet Explorer 11, By selecting "Use reccommended security settings" and closing')
+start-process iexplore.exe -Wait
+
 #installs packages that require refreshenv
 choco install boxstarter --yes
 choco install python --yes

@@ -306,7 +306,6 @@ Please raise an issue for extra tools.
 ## Pre-requisites
 
 64 Bit Windows 10 1904 or above setup as default.
-Internet Explorer opened, with default settings selected.
 
 ## Usage
 
