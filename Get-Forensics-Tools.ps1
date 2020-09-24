@@ -214,6 +214,9 @@ function New-Path($name)
     $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
     $newpath = "$oldpath;c:\NonChoco_Tools\$($name)"
     Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath
+    $env:ChocolateyInstall = Convert-Path "$((Get-Command choco).Path)\..\.."   
+    Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+    refreshenv
 }
 
 
@@ -254,6 +257,7 @@ choco install python2 --yes
 # Note: Using `. $PROFILE` instead *may* work, but isn't guaranteed to.
 $env:ChocolateyInstall = Convert-Path "$((Get-Command choco).Path)\..\.."   
 Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+refreshenv
 
 # refreshenv is now an alias for Update-SessionEnvironment
 # (rather than invoking refreshenv.cmd, the *batch file* for use with cmd.exe)
@@ -306,7 +310,10 @@ foreach($package in $packages.WebPackages)
         $package.status = Install-MSI  "$($package.name)" "$($package.msiargs)"
         Remove-Item "$($pwd)\$($package.name)" -Recurse -Force
     }
-
+    {
+        New-Path $package.Name
+        $package.status = "Downloaded & added to cli path"
+    }
 }
 
 #Install Git Packages
