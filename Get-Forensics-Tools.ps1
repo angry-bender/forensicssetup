@@ -245,7 +245,7 @@ foreach($package in $packages.WebPackages)
 #     $package.status = Get-Package $package  
     if($package.ismsi -eq $true)
     {
-        Install-MSI  "$($package.name)" "$($package.msiargs)"
+        $package.status = Install-MSI  "$($package.name)" "$($package.msiargs)"
         Remove-Item "$($pwd)\$($package.name)" -Recurse -Force
     }
 
