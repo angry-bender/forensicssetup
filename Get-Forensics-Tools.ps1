@@ -310,6 +310,7 @@ foreach($package in $packages.WebPackages)
         $package.status = Install-MSI  "$($package.name)" "$($package.msiargs)"
         Remove-Item "$($pwd)\$($package.name)" -Recurse -Force
     }
+    elseif ($package.type -eq "zip" -or $package.type -eq "7z") 
     {
         New-Path $package.Name
         $package.status = "Downloaded & added to cli path"
