@@ -199,6 +199,16 @@ function Get-SansResources()
   
 }
 
+function Restore-ForensicsMachine()
+{
+    Import-Module Boxstarter.Winconfig
+    Set-WindowsExplorerOptions -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowHiddenFilesFoldersDrive
+    Disable-BingSearch
+    Disable-GameBarTips
+    Disable-ComputerRestore -Drive ${Env:SystemDrive}  
+}
+
+
 Import-Module BitsTransfer
 
 #Initialise the packages object
@@ -207,10 +217,35 @@ $packages=(Get-Content -Raw -Path .\packages.json | ConvertFrom-Json)
 #Initalise the screenlock object
 $WShell = New-Object -com "Wscript.Shell"
 
-#Stops sleep
-Powercfg /Change standby-timeout-ac 0
-Powercfg /Change standby-timeout-dc 0
+# Tweak power options to prevent installs from timing out
+& powercfg -change -monitor-timeout-ac 0 | Out-Null
+& powercfg -change -monitor-timeout-dc 0 | Out-Null
+& powercfg -change -disk-timeout-ac 0 | Out-Null
+& powercfg -change -disk-timeout-dc 0 | Out-Null
+& powercfg -change -standby-timeout-ac 0 | Out-Null
+& powercfg -change -standby-timeout-dc 0 | Out-Null
+& powercfg -change -hibernate-timeout-ac 0 | Out-Null
+& powercfg -change -hibernate-timeout-dc 0 | Out-Null
 
+#installs packages that require refreshenv
+choco install boxstarter
+choco install python
+choco install python2
+
+# Make `refreshenv` available right away, by defining the $env:ChocolateyInstall
+# variable and importing the Chocolatey profile module.
+# Note: Using `. $PROFILE` instead *may* work, but isn't guaranteed to.
+$env:ChocolateyInstall = Convert-Path "$((Get-Command choco).Path)\..\.."   
+Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+
+# refreshenv is now an alias for Update-SessionEnvironment
+# (rather than invoking refreshenv.cmd, the *batch file* for use with cmd.exe)
+# This should make git.exe accessible via the refreshed $env:PATH, so that it
+# can be called by name only.
+refreshenv
+
+#Restores explorer settings
+Restore-ForensicsMachine
 
 # Get the choco packages installed
 foreach($package in $packages.ChocoPackages)
@@ -237,21 +272,7 @@ Get-SansResources
 Remove-Item "$($env:LOCALAPPDATA)\Microsoft\WindowsApps\python.exe"
 Remove-Item "$($env:LOCALAPPDATA)\Microsoft\WindowsApps\python3.exe"
 
-#installs python
-choco install python
-choco install python2
 
-# Make `refreshenv` available right away, by defining the $env:ChocolateyInstall
-# variable and importing the Chocolatey profile module.
-# Note: Using `. $PROFILE` instead *may* work, but isn't guaranteed to.
-$env:ChocolateyInstall = Convert-Path "$((Get-Command choco).Path)\..\.."   
-Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-
-# refreshenv is now an alias for Update-SessionEnvironment
-# (rather than invoking refreshenv.cmd, the *batch file* for use with cmd.exe)
-# This should make git.exe accessible via the refreshed $env:PATH, so that it
-# can be called by name only.
-refreshenv
 
 # Create a working directory for other executables then work there
 New-Item -Path "C:\" -Name "NonChoco_Tools" -ItemType "directory"
