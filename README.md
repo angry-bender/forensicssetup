@@ -1,8 +1,8 @@
-# WINSIFT ForensicsSetup Beta 0.3.1.2
+# WINSIFT ForensicsSetup Beta 0.4
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.3.1.2](#winsift-forensicssetup-beta-0312)
+- [WINSIFT ForensicsSetup Beta 0.4](#winsift-forensicssetup-beta-04)
   - [Contents](#contents)
   - [Announcements](#announcements)
   - [Description](#description)
