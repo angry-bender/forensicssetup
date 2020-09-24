@@ -199,6 +199,9 @@ function Get-SansResources()
   
 }
 
+
+
+
 Import-Module BitsTransfer
 
 #Initialise the packages object
@@ -207,9 +210,15 @@ $packages=(Get-Content -Raw -Path .\packages.json | ConvertFrom-Json)
 #Initalise the screenlock object
 $WShell = New-Object -com "Wscript.Shell"
 
-#Stops sleep
-Powercfg /Change standby-timeout-ac 0
-Powercfg /Change standby-timeout-dc 0
+# Tweak power options to prevent installs from timing out
+& powercfg -change -monitor-timeout-ac 0 | Out-Null
+& powercfg -change -monitor-timeout-dc 0 | Out-Null
+& powercfg -change -disk-timeout-ac 0 | Out-Null
+& powercfg -change -disk-timeout-dc 0 | Out-Null
+& powercfg -change -standby-timeout-ac 0 | Out-Null
+& powercfg -change -standby-timeout-dc 0 | Out-Null
+& powercfg -change -hibernate-timeout-ac 0 | Out-Null
+& powercfg -change -hibernate-timeout-dc 0 | Out-Null
 
 
 # Get the choco packages installed

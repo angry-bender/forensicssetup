@@ -21,14 +21,8 @@
 
 Implimented the following software;
 
-- Python2.7
-- Python3.8
-- Autopsy
-- Rekall Forensics
-- Hashcat
-- EventLogExplorer
-
-Created JSON file, for Modular Package use.
+- Wireshark
+- 
 Fixed error logging
 Stop sleep on machine
 Stop screentimeout by pressing scrolllock between each script
@@ -113,6 +107,20 @@ If you wish to use this script for commercial-use the following software require
 - Autopsy
 - Rekall Forensics
 - oclHashcat-plus
+- wireshark
+- yara
+- HXD Hex Editor
+- WinDBG
+- Volatility Stand Alone Exe
+- Unix Utils + 14-04-03 Updates
+- sqlitebrowser
+- SQLite Expert
+- Shadow Explorer
+- RegRipper
+- Process Hacker
+- prefetchparser (pecmd)
+- winprefetchview
+
 
 ### Unlicenced Software (In Progress)
 
@@ -175,26 +183,25 @@ If you wish to use this script for commercial-use the following software require
 - Patator (password cracker)
 - PC Inspector File Recovery
 - pdbxtract
-- Prefetch Parser (McKinnon)
-- Process Hacker
+
+
 - Putty [#9](../../issues/9)
 - Python_EVTX (W. Ballenthin)
-- Quicktime [#9](../../issues/9)
+
 - RecoverRS
 - Recycle Bin Parser
 - RegDecoder
 - RegDecoderLive
 - Registry and File Viewer
 - Registry Decoder
-- RegRipper
-- RegRipperRunner
+- 
 - rfc.pl
 - rifiuti
 - Rot13 String Decoder
 - RUStrings.pl (Perl Script)
 - SamInside
 - Scalpel
-- Shadow Explorer
+- 
 - Shadow Kit
 - Shellbags
 - Simple File Parser
@@ -204,7 +211,7 @@ If you wish to use this script for commercial-use the following software require
 - SPL Viewer
 - SPL Viewer
 - SQLIte Deleted Records Parser
-- SQLite Expert (Personal Edition)
+
 - SRUM Dump
 - SSDeep
 - Strings
@@ -213,16 +220,16 @@ If you wish to use this script for commercial-use the following software require
 - Thumbs Viewer
 - TriForce
 - Universal Extractor
-- Unix Utils + 14-04-03 Updates
+
 - User Assist
 - usnj.pl
-- UVCView
+
 - Volatility (zip with source)
 - Volatility distrom
 - Volatility openpyxl
 - Volatility Pycrypto
 - Volatility Python Imaging Library (PIL)
-- Volatility Stand Alone Exe
+- 
 - Volatility Twitter / Facebook Plugins
 - Volatility yara
 - VSC Toolset
@@ -230,12 +237,12 @@ If you wish to use this script for commercial-use the following software require
 - Web Page Saver
 - Wfa3e Tools
 - Wfa4e Tools
-- WinDBG
+
 - Windows Registry Recovery
-- WinHex
+
 - WinMerge
 - winpmem
-- WireShark
+
 - Woanware Autorunner
 - Woanware ChromeForensics
 - Woanware ESEDbViewer
@@ -256,7 +263,7 @@ If you wish to use this script for commercial-use the following software require
 - Woanware USB Device Forensics
 - XORSearch
 - XORStrings
-- Yara
+
 
 ### In Development
 
