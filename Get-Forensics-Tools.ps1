@@ -201,6 +201,10 @@ function Get-SansResources()
 
 Import-Module BitsTransfer
 
+#Initialise the packages object
+$packages=(Get-Content -Raw -Path .\packages.json | ConvertFrom-Json) 
+
+
 # Get the choco packages installed
 foreach($package in $packages.ChocoPackages)
 {
@@ -233,9 +237,6 @@ refreshenv
 # Create a working directory for other executables then work there
 New-Item -Path "C:\" -Name "NonChoco_Tools" -ItemType "directory"
 Set-Location C:\NonChoco_Tools
-
-#Initialise the packages object
-$packages=(Get-Content -Raw -Path .\packages.json | ConvertFrom-Json) 
 
 # Start Getting and Installing other Executables
 # Install Web Packages
