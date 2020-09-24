@@ -201,6 +201,7 @@ function Get-SansResources()
 
 function Restore-ForensicsMachine()
 {
+    #error  import error & =
     Import-Module Boxstarter.Winconfig
     Set-WindowsExplorerOptions -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowHiddenFilesFoldersDrive
     Disable-BingSearch
