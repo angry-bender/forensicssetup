@@ -10,6 +10,7 @@
       - [Licenced Software (Included) - Free Licence - Non-Commercial Use](#licenced-software-included---free-licence---non-commercial-use)
       - [Licenced Software (Not Included)](#licenced-software-not-included)
     - [Unlicenced Software (Included)](#unlicenced-software-included)
+    - [GUI Tools Included](#gui-tools-included)
     - [Unlicenced Software (In Progress)](#unlicenced-software-in-progress)
     - [In Development](#in-development)
     - [Feedback / tool Requests](#feedback--tool-requests)
@@ -21,8 +22,31 @@
 
 Implimented the following software;
 
-- Wireshark
-- 
+- wireshark
+- yara
+- HXD Hex Editor
+- WinDBG
+- Volatility Stand Alone Exe
+- Unix Utils + 14-04-03 Updates
+- sqlitebrowser
+- SQLite Expert
+- Shadow Explorer
+- RegRipper
+- Process Hacker
+- prefetchparser (pecmd)
+- winprefetchview
+- Log Parser
+- Disk2VHD
+- Active State Active Perl
+- GPG4Win
+- Image Magick
+- skypelogview
+- skypecontactsview
+- Universal Extractor
+- WinMerge
+- [GUI Tools](#gui-tools-included)
+
+Implimented Explorer Fixes
 Fixed error logging
 Stop sleep on machine
 Stop screentimeout by pressing scrolllock between each script
@@ -95,6 +119,7 @@ If you wish to use this script for commercial-use the following software require
 - TimeApp
 - Sleuth Kit
 - SysInternals Suite
+- strings
 - PhotoRec GUI
 - Plaso
 - Network Miner
@@ -120,15 +145,34 @@ If you wish to use this script for commercial-use the following software require
 - Process Hacker
 - prefetchparser (pecmd)
 - winprefetchview
+- Log Parser
+- Disk2VHD
+- Active State Active Perl
+- GPG4Win
+- Image Magick
+- skypelogview
+- skypecontactsview
+- Universal Extractor
+- WinMerge
 
+### GUI Tools Included
+
+- JRE8
+- 7-Zip [#9](../../issues/9)
+- AbobeAIR [#9](../../issues/9)
+- Adobe Reader [#9](../../issues/9)
+- FireFox [#9](../../issues/9)
+- Flash Player Activex [#9](../../issues/9)
+- Flash Player Plugin [#9](../../issues/9)
+- Google Chrome [#9](../../issues/9)
+- Java Runtime [#9](../../issues/9)
+- Notepad++ [#9](../../issues/9)
+- OpenOffice 4 [#9](../../issues/9)
+- OpenVPN GUI [#9](../../issues/9)
 
 ### Unlicenced Software (In Progress)
 
 - $LogFileParser
-- 7-Zip [#9](../../issues/9)
-- AbobeAIR [#9](../../issues/9)
-- Active State Active Perl
-- Adobe Reader [#9](../../issues/9)
 - Advanced Prefetch Analyzer
 - Auto_XOR_Decryptor.py
 - Autorip
@@ -137,33 +181,22 @@ If you wish to use this script for commercial-use the following software require
 - Converter
 - cRaRk
 - cRaRk GUI
-- defraggler
-- Diff.exe
 - Disk2VHD
 - EDD
 - EMFSpoolerView
 - ESECarve
 - Findevil
-- FireFox [#9](../../issues/9)
 - FixEVT
-- Flash Player Activex [#9](../../issues/9)
-- Flash Player Plugin [#9](../../issues/9)
 - Forensic Copy
 - Forensic Image Viewer - FIV
 - GA Cookie Cruncher
 - Gmail Offline Parser
-- Google Chrome [#9](../../issues/9)
-- GPG4Win
 - Hindsight
-- Image Magick
 - INDXParse (W. Ballenthin)
-- Java Runtime [#9](../../issues/9)
 - jl.exe
 - jobparse.pl
-- JRE8
 - Kernel OST Viewer
 - Kernel PST Viewer
-- Log Parser
 - lslnk-directory-parse2.pl
 - Magnet Acquire
 - MagnetRAMCapture
@@ -174,62 +207,46 @@ If you wish to use this script for commercial-use the following software require
 - MFT View
 - MiTec Structured Storage View
 - MiTec Windows Registry Analyzer
-- Notepad++ [#9](../../issues/9)
 - Nuix 6
-- OpenOffice 4 [#9](../../issues/9)
-- OpenVPN GUI [#9](../../issues/9)
 - page_brute
 - parse_csc_dir.exe
 - Patator (password cracker)
 - PC Inspector File Recovery
 - pdbxtract
-
-
-- Putty [#9](../../issues/9)
 - Python_EVTX (W. Ballenthin)
-
 - RecoverRS
 - Recycle Bin Parser
 - RegDecoder
 - RegDecoderLive
 - Registry and File Viewer
 - Registry Decoder
-- 
 - rfc.pl
 - rifiuti
 - Rot13 String Decoder
 - RUStrings.pl (Perl Script)
 - SamInside
 - Scalpel
-- 
 - Shadow Kit
 - Shellbags
 - Simple File Parser
-- Skype Parser
 - Spider3
 - Spider4
 - SPL Viewer
 - SPL Viewer
 - SQLIte Deleted Records Parser
-
 - SRUM Dump
 - SSDeep
-- Strings
 - TCHunt
 - ThumbCache Viewer
 - Thumbs Viewer
 - TriForce
-- Universal Extractor
-
 - User Assist
 - usnj.pl
-
 - Volatility (zip with source)
 - Volatility distrom
 - Volatility openpyxl
 - Volatility Pycrypto
 - Volatility Python Imaging Library (PIL)
-- 
 - Volatility Twitter / Facebook Plugins
 - Volatility yara
 - VSC Toolset
@@ -237,12 +254,8 @@ If you wish to use this script for commercial-use the following software require
 - Web Page Saver
 - Wfa3e Tools
 - Wfa4e Tools
-
 - Windows Registry Recovery
-
-- WinMerge
 - winpmem
-
 - Woanware Autorunner
 - Woanware ChromeForensics
 - Woanware ESEDbViewer
@@ -263,7 +276,6 @@ If you wish to use this script for commercial-use the following software require
 - Woanware USB Device Forensics
 - XORSearch
 - XORStrings
-
 
 ### In Development
 

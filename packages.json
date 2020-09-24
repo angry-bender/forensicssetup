@@ -147,9 +147,46 @@
             "name":"winprefetchview",
             "status":""
         }, 
-
-
-
+        {
+            "name":"logparser",
+            "status":""
+        }, 
+        {
+            "name":"Disk2VHD",
+            "status":""
+        }, 
+        {
+            "name":"activeperl",
+            "status":""
+        }, 
+        {
+            "name":"gpg4win",
+            "status":""
+        }, 
+        {
+            "name":"imagemagick",
+            "status":""
+        }, 
+        {
+            "name":"skypelogview",
+            "status":""
+        }, 
+        {
+            "name":"skypecontactsview",
+            "status":""
+        }, 
+        {
+            "name":"universal-extractor",
+            "status":""
+        },
+        {
+            "name":"winmerger",
+            "status":""
+        },
+        {
+            "name":"defraggler",
+            "status":""
+        },    
         {
             "name":"pip",
             "status":""
@@ -204,6 +241,10 @@
         },
         {
             "name":"vlc",
+            "status":""
+        },
+        {
+            "name":"jre8",
             "status":""
         }
     ]
