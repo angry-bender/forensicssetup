@@ -1,8 +1,8 @@
-# WINSIFT ForensicsSetup Beta 0.4.1
+# WINSIFT ForensicsSetup Beta 0.4.2
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.4.1](#winsift-forensicssetup-beta-041)
+- [WINSIFT ForensicsSetup Beta 0.4.2](#winsift-forensicssetup-beta-042)
   - [Contents](#contents)
   - [KNOWN ISSUES](#known-issues)
     - [Choco packages that are broken #18](#choco-packages-that-are-broken-18)
@@ -58,6 +58,7 @@ Implimented the following software;
 - WinMerge
 - [GUI Tools](#gui-tools-included)
 - AgentRansack
+- FTKImager (Through Consent to go to marketing link at end of script)
 
 Implimented Explorer Fixes
 
@@ -80,7 +81,7 @@ If you wish to use this script for commercial-use the following software require
 #### Licenced Software (Included) - Free Licence - Non-Commercial Use
 
 - Arsenal Image Mounter
-- FTK (With marketing sign up) - Will work on user prompt to download free version by sign up, with user consent [#4](../../issues/4) [#10](../../issues/10)
+- FTK (With marketing sign up, by user consent popup at end of script)
 - Event Log Explorer
 
 #### Licenced Software (Not Included)

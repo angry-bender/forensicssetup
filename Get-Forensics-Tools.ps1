@@ -327,6 +327,19 @@ foreach($package in $packages.GitPackages)
 }
 
 write-output $packages.GitPackages $packages.WebPackages $packages.ChocoPackages | Format-Table -property name,status
+$ButtonType = [System.Windows.MessageBoxButton]::YesNo
+$MessageboxTitle = "Setup Complete"
+$Messageboxbody = "Please check the powershell table for any errors`nAnother (Non-Sponsored) tool is FTK Imager.`nIf you need this tool, please select yes as per the vendor guidance to this project"
+$MessageIcon = [System.Windows.MessageBoxImage]::Information
+$result = [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
+if($result -eq "Yes")
+{
+    
+    $ButtonType = [System.Windows.MessageBoxButton]::Ok
+    $Messageboxbody = "Select FTK Imager & Download page, register then install`nNOTE: Not by devlopers choice to refer you here "
+    [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
+    [system.Diagnostics.Process]::Start("firefox","https://accessdata.com/product-download")
+}
 
 
 
