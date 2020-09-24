@@ -4,6 +4,8 @@
 
 - [WINSIFT ForensicsSetup Beta 0.4.1](#winsift-forensicssetup-beta-041)
   - [Contents](#contents)
+  - [KNOWN ISSUES](#known-issues)
+    - [Choco packages that are broken #18](#choco-packages-that-are-broken-18)
   - [Announcements](#announcements)
   - [Description](#description)
     - [Licencing](#licencing)
@@ -17,6 +19,16 @@
   - [Pre-requisites](#pre-requisites)
   - [Usage](#usage)
   - [Developer contact](#developer-contact)
+
+## KNOWN ISSUES
+
+### Choco packages that are broken [#18](../../issues/18)
+
+- [ ] Plaso - Maintainer Contacted
+- [ ] winbg- Maintainer Contacted
+- [ ] regripper- Maintainer Contacted
+- [ ] processhacker - Maintainer Contacted
+- [ ] OpenOffice - Maintainer Contacted
 
 ## Announcements
 
