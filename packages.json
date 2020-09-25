@@ -32,17 +32,13 @@
             "status":""
         },
         {
-            "Name":"Arsenal",
-            "url":"https://arsenalrecon.com/downloads/",
-            "scrapewebsite":true,
-            "linkmember":"outerHTML",
-            "likefilter":"button_0",
-            "notfilter":null,
+            "Name":"ZimmermanTools",
+            "url":"https://f001.backblazeb2.com/file/EricZimmermanTools/Get-ZimmermanTools.zip",
+            "scrapewebsite":false,
             "type":"zip",
-            "ismsi":true,
-            "msiargs":"/silent",
+            "ismsi":false,
             "status":""
-        },
+        },        
         {
             "Name":"Hashcat",
             "url":"https://hashcat.net/files/hashcat-6.1.1.7z",
@@ -66,8 +62,31 @@
             "type":"zip",
             "ismsi":false,
             "status":""
-        }
-        
+        },
+        {
+            "Name":"SearchEverything",
+            "url":"https://www.voidtools.com/downloads",
+            "scrapewebsite":true,
+            "linkmember":"outerHTML",
+            "likefilter":"Installer 64-bit",
+            "notfilter":"Lite",
+            "type":"exe",
+            "ismsi":true,
+            "msiargs":"/S",
+            "status":""
+        },
+        {
+            "Name":"Arsenal",
+            "url":"https://arsenalrecon.com/downloads/",
+            "scrapewebsite":true,
+            "linkmember":"outerHTML",
+            "likefilter":"button_0",
+            "notfilter":null,
+            "type":"zip",
+            "ismsi":true,
+            "msiargs":"/silent",
+            "status":""
+        }        
     ],
     "ChocoPackages":
     [
@@ -81,11 +100,6 @@
         },
         {
             "name":"photorec",
-            "status":""
-        },
-        {
-            "name":"ericzimmermantools",
-            "args":"--pre",
             "status":""
         },
         {

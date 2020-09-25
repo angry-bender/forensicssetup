@@ -88,10 +88,13 @@ function Get-Package($package)
         {
             $dl_url = $webresponse.Links | Where-Object "$($package.linkmember)" -Like "*$($package.likefilter)*" | Where-Object href -notlike "*$($package.notfilter)*"
         }
-
         if ($dl_url[0].href -notlike "*http*")
         {
-            $dl_url[0].href = "$($package.url)\$($dl_url.href)"
+            if($package.url -like "*/downloads*")
+            {
+                $package.url = $package.url.Replace("/downloads","")
+            }             
+            $dl_url[0].href = "$($package.url)$($dl_url.href)"
         }
     }
     else 
@@ -257,7 +260,6 @@ choco install python2 --yes
 # Note: Using `. $PROFILE` instead *may* work, but isn't guaranteed to.
 $env:ChocolateyInstall = Convert-Path "$((Get-Command choco).Path)\..\.."   
 Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-refreshenv
 
 # refreshenv is now an alias for Update-SessionEnvironment
 # (rather than invoking refreshenv.cmd, the *batch file* for use with cmd.exe)
@@ -333,8 +335,19 @@ foreach($package in $packages.GitPackages)
         $package.status = "Downloaded & added to cli path"
     }
 }
+#Get-Zimmerman Tools execution
+Set-Location .\ZimmermanTools
+.\Get-ZimmermanTools.ps1
+$WshShell = New-Object -comObject WScript.Shell
 
-write-output $packages.GitPackages $packages.WebPackages $packages.ChocoPackages | Format-Table -property name,status
+$exe = Get-ChildItem -Recurse -Include *.exe | where-object name -notlike *cmd*
+foreach($i  in $exe){
+    $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\$($i.name.Replace(".exe",".lnk"))")
+    $Shortcut.TargetPath = $($i.fullname)
+    $Shortcut.Save()
+    Set-Location ..
+}
+
 $ButtonType = [System.Windows.MessageBoxButton]::YesNo
 $MessageboxTitle = "Setup Complete"
 $Messageboxbody = "Please check the powershell table for any errors`nAnother (Non-Sponsored) tool is FTK Imager.`nIf you need this tool, please select yes as per the vendor guidance to this project"
@@ -347,6 +360,17 @@ if($result -eq "Yes")
     $Messageboxbody = "Select FTK Imager & Download page, register then install`nNOTE: Not by devlopers choice to refer you here "
     [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
     [system.Diagnostics.Process]::Start("firefox","https://accessdata.com/product-download")
+}
+
+write-output $packages.GitPackages $packages.WebPackages $packages.ChocoPackages | Format-Table -property name,status
+Write-Output "for any Chocolatey errors you can try to install again with `choco install <packagename>` however, please check any known issues on the github page"
+Write-Output "For any other error's please raise an issue on the github page"
+$ButtonType = [System.Windows.MessageBoxButton]::YesNo
+$Messageboxbody = "Would you like to see the known Chocolatey issues?`nOr, would you like to raise an issue for a broken package?"
+$result = [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
+if($result -eq "Yes")
+{
+    [system.Diagnostics.Process]::Start("firefox","https://github.com/angry-bender/forensicssetup/issues")
 }
 
 

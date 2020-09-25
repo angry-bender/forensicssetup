@@ -1,11 +1,12 @@
-# WINSIFT ForensicsSetup Beta 0.4.2
+# WINSIFT ForensicsSetup Beta 0.4.3
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.4.2](#winsift-forensicssetup-beta-042)
+- [WINSIFT ForensicsSetup Beta 0.4.3](#winsift-forensicssetup-beta-043)
   - [Contents](#contents)
   - [KNOWN ISSUES](#known-issues)
     - [Choco packages that are broken #18](#choco-packages-that-are-broken-18)
+    - [Zimmerman tools not showing shortcuts or installing binaries  #19](#zimmerman-tools-not-showing-shortcuts-or-installing-binaries-19)
   - [Announcements](#announcements)
   - [Description](#description)
     - [Licencing](#licencing)
@@ -27,8 +28,6 @@
 - [x] Plaso - Maintainer Contacted - Workaround made
 - [ ] winbg- Maintainer Contacted
 - [ ] regripper- Maintainer Contacted
-- [ ] processhacker - Maintainer Contacted
-- [ ] OpenOffice - Maintainer Contacted
 
 ### Zimmerman tools not showing shortcuts or installing binaries  [#19](../../issues/19)
 
@@ -72,7 +71,7 @@ Stop screentimeout by pressing scrolllock between each script
 
 ## Description
 
-An open source project to aimed to replicate the Windows SIFT Machine used during SANS Courses minus any payware software. This aims to install the same tools forensics anlaysts have trained with during their SANS Course, or to quickly prepare for a CTF, as there does not appear to be a similar VM available Open Source.
+An open source project to aimed to replicate the Windows SIFT Machine used during SANS Courses minus any payware software. This aims to install the same tools forensics analysts have trained with during their SANS Course, or to quickly prepare for a CTF, as there does not appear to be a similar VM available Open Source.
 
 ### Licencing
 
@@ -312,14 +311,22 @@ Please raise an issue for extra tools.
 
 ## Usage
 
+Right click on the start menu, and select Administrative Command Prompt
+
+Set the powershell execution policy with
+`Set-ExecutionPolicy Unresticted`
+
+Change to the downloaded directory i.e  
+`cd $home\Downloads`
+
 Install Chocolatey with
-Get-Chocolatey.ps1
+`.\Get-Chocolatey.ps1`
 
 Install Git with
-Get-Git.ps1
+`.\Get-Git.ps1`
 
 Install Forensics Tools with
-Get-Forensics-Tools.ps1
+`.\Get-Forensics-Tools.ps1`
 
 ## Developer contact
 
