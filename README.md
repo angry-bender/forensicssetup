@@ -28,7 +28,6 @@
 - [x] Plaso - Maintainer Contacted - Workaround made
 - [ ] winbg- Maintainer Contacted
 - [ ] regripper- Maintainer Contacted
-- [ ] processhacker - Maintainer Contacted
 
 ### Zimmerman tools not showing shortcuts or installing binaries  [#19](../../issues/19)
 
@@ -72,7 +71,7 @@ Stop screentimeout by pressing scrolllock between each script
 
 ## Description
 
-An open source project to aimed to replicate the Windows SIFT Machine used during SANS Courses minus any payware software. This aims to install the same tools forensics anlaysts have trained with during their SANS Course, or to quickly prepare for a CTF, as there does not appear to be a similar VM available Open Source.
+An open source project to aimed to replicate the Windows SIFT Machine used during SANS Courses minus any payware software. This aims to install the same tools forensics analysts have trained with during their SANS Course, or to quickly prepare for a CTF, as there does not appear to be a similar VM available Open Source.
 
 ### Licencing
 
