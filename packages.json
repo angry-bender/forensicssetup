@@ -40,18 +40,6 @@
             "status":""
         },        
         {
-            "Name":"Arsenal",
-            "url":"https://arsenalrecon.com/downloads/",
-            "scrapewebsite":true,
-            "linkmember":"outerHTML",
-            "likefilter":"button_0",
-            "notfilter":null,
-            "type":"zip",
-            "ismsi":true,
-            "msiargs":"/silent",
-            "status":""
-        },
-        {
             "Name":"Hashcat",
             "url":"https://hashcat.net/files/hashcat-6.1.1.7z",
             "scrapewebsite":false,
@@ -86,8 +74,19 @@
             "ismsi":true,
             "msiargs":"/s",
             "status":""
-        }
-        
+        },
+        {
+            "Name":"Arsenal",
+            "url":"https://arsenalrecon.com/downloads/",
+            "scrapewebsite":true,
+            "linkmember":"outerHTML",
+            "likefilter":"button_0",
+            "notfilter":null,
+            "type":"zip",
+            "ismsi":true,
+            "msiargs":"/silent",
+            "status":""
+        }        
     ],
     "ChocoPackages":
     [
