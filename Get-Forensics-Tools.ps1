@@ -260,7 +260,6 @@ choco install python2 --yes
 # Note: Using `. $PROFILE` instead *may* work, but isn't guaranteed to.
 $env:ChocolateyInstall = Convert-Path "$((Get-Command choco).Path)\..\.."   
 Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-refreshenv
 
 # refreshenv is now an alias for Update-SessionEnvironment
 # (rather than invoking refreshenv.cmd, the *batch file* for use with cmd.exe)
