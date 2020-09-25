@@ -72,7 +72,7 @@
             "notfilter":"Lite",
             "type":"exe",
             "ismsi":true,
-            "msiargs":"/s",
+            "msiargs":"/S",
             "status":""
         },
         {
