@@ -32,6 +32,14 @@
             "status":""
         },
         {
+            "Name":"ZimmermanTools",
+            "url":"https://f001.backblazeb2.com/file/EricZimmermanTools/Get-ZimmermanTools.zip",
+            "scrapewebsite":false,
+            "type":"zip",
+            "ismsi":false,
+            "status":""
+        },        
+        {
             "Name":"Arsenal",
             "url":"https://arsenalrecon.com/downloads/",
             "scrapewebsite":true,
@@ -93,11 +101,6 @@
         },
         {
             "name":"photorec",
-            "status":""
-        },
-        {
-            "name":"ericzimmermantools",
-            "args":"--pre",
             "status":""
         },
         {

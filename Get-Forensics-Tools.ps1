@@ -228,6 +228,8 @@ $packages=(Get-Content -Raw -Path .\packages.json | ConvertFrom-Json)
 #Initalise the screenlock object
 $WShell = New-Object -com "Wscript.Shell"
 
+$InitialDirectory = $($pwd)
+
 # Tweak power options to prevent installs from timing out
 & powercfg -change -monitor-timeout-ac 0 | Out-Null
 & powercfg -change -monitor-timeout-dc 0 | Out-Null
@@ -333,6 +335,11 @@ foreach($package in $packages.GitPackages)
         $package.status = "Downloaded & added to cli path"
     }
 }
+#Get-Zimmerman Tools execution
+Set-Location .\ZimmermanTools
+.\Get-ZimmermanTools.ps1
+Set-Location ..
+
 
 write-output $packages.GitPackages $packages.WebPackages $packages.ChocoPackages | Format-Table -property name,status
 $ButtonType = [System.Windows.MessageBoxButton]::YesNo
