@@ -1,8 +1,8 @@
-# WINSIFT ForensicsSetup Beta 0.4.2
+# WINSIFT ForensicsSetup Beta 0.4.3
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.4.2](#winsift-forensicssetup-beta-042)
+- [WINSIFT ForensicsSetup Beta 0.4.3](#winsift-forensicssetup-beta-043)
   - [Contents](#contents)
   - [KNOWN ISSUES](#known-issues)
     - [Choco packages that are broken #18](#choco-packages-that-are-broken-18)
