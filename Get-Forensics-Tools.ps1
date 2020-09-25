@@ -88,10 +88,13 @@ function Get-Package($package)
         {
             $dl_url = $webresponse.Links | Where-Object "$($package.linkmember)" -Like "*$($package.likefilter)*" | Where-Object href -notlike "*$($package.notfilter)*"
         }
-
         if ($dl_url[0].href -notlike "*http*")
         {
-            $dl_url[0].href = "$($package.url)\$($dl_url.href)"
+            if($package.url -like "*/downloads*")
+            {
+                $package.url = $package.url.Replace("/downloads","")
+            }             
+            $dl_url[0].href = "$($package.url)$($dl_url.href)"
         }
     }
     else 
@@ -227,8 +230,6 @@ $packages=(Get-Content -Raw -Path .\packages.json | ConvertFrom-Json)
 
 #Initalise the screenlock object
 $WShell = New-Object -com "Wscript.Shell"
-
-$InitialDirectory = $($pwd)
 
 # Tweak power options to prevent installs from timing out
 & powercfg -change -monitor-timeout-ac 0 | Out-Null
