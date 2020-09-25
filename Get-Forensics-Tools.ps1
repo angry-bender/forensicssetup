@@ -349,8 +349,6 @@ foreach($i  in $exe){
     Set-Location ..
 }
 
-
-write-output $packages.GitPackages $packages.WebPackages $packages.ChocoPackages | Format-Table -property name,status
 $ButtonType = [System.Windows.MessageBoxButton]::YesNo
 $MessageboxTitle = "Setup Complete"
 $Messageboxbody = "Please check the powershell table for any errors`nAnother (Non-Sponsored) tool is FTK Imager.`nIf you need this tool, please select yes as per the vendor guidance to this project"
@@ -363,6 +361,17 @@ if($result -eq "Yes")
     $Messageboxbody = "Select FTK Imager & Download page, register then install`nNOTE: Not by devlopers choice to refer you here "
     [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
     [system.Diagnostics.Process]::Start("firefox","https://accessdata.com/product-download")
+}
+
+write-output $packages.GitPackages $packages.WebPackages $packages.ChocoPackages | Format-Table -property name,status
+Write-Output "for any Chocolatey errors you can try to install again with `choco install <packagename>` however, please check any known issues on the github page"
+Write-Output "For any other error's please raise an issue on the github page"
+$ButtonType = [System.Windows.MessageBoxButton]::YesNo
+$Messageboxbody = "Would you like to see the known Chocolatey issues?`nOr, would you like to raise an issue for a broken package?"
+$result = [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
+if($result -eq "Yes")
+{
+    [system.Diagnostics.Process]::Start("firefox","https://github.com/angry-bender/forensicssetup/issues")
 }
 
 
