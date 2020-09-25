@@ -29,8 +29,6 @@
 - [ ] winbg- Maintainer Contacted
 - [ ] regripper- Maintainer Contacted
 
-### Zimmerman tools not showing shortcuts or installing binaries  [#19](../../issues/19)
-
 ## Announcements
 
 Implimented the following software;
