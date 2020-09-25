@@ -339,7 +339,15 @@ foreach($package in $packages.GitPackages)
 #Get-Zimmerman Tools execution
 Set-Location .\ZimmermanTools
 .\Get-ZimmermanTools.ps1
-Set-Location ..
+$WshShell = New-Object -comObject WScript.Shell
+
+$exe = Get-ChildItem -Recurse -Include *.exe | where-object name -notlike *cmd*
+foreach($i  in $exe){
+    $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\$($i.name.Replace(".exe",".lnk"))")
+    $Shortcut.TargetPath = $($i.fullname)
+    $Shortcut.Save()
+    Set-Location ..
+}
 
 
 write-output $packages.GitPackages $packages.WebPackages $packages.ChocoPackages | Format-Table -property name,status
