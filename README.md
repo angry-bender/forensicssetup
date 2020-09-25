@@ -29,7 +29,7 @@
 - [ ] winbg- Maintainer Contacted
 - [ ] regripper- Maintainer Contacted
 - [ ] processhacker - Maintainer Contacted
-- ~~ [x] OpenOffice - Maintainer Contacted - Fixed ~~
+- [x] ~~ OpenOffice - Maintainer Contacted - Fixed ~~
 
 ### Zimmerman tools not showing shortcuts or installing binaries  [#19](../../issues/19)
 
