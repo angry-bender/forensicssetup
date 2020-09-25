@@ -66,6 +66,18 @@
             "type":"zip",
             "ismsi":false,
             "status":""
+        },
+        {
+            "Name":"SearchEverything",
+            "url":"https://www.voidtools.com/downloads/",
+            "scrapewebsite":true,
+            "linkmember":"outerHTML",
+            "likefilter":"Installer 64-bit",
+            "notfilter":"Lite",
+            "type":"exe",
+            "ismsi":true,
+            "msiargs":"/silent",
+            "status":""
         }
         
     ],
