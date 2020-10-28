@@ -123,7 +123,7 @@ function Get-Package($package)
         {
             Get-BundledDownload "$($package.name)" "$($dl_url.href)" 
         }         
-        elseif ($package.type -eq "zip" -or $package.type -eq "7z") 
+        elseif ($package.type -eq "zip" -or $package.type -eq "7z" -or $package.type -eq "zipexe" ) 
         {
             Get-CompressedDownload $package "$($dl_url.href)"
         }
