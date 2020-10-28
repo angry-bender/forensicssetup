@@ -76,6 +76,16 @@
             "status":""
         },
         {
+            "Name":"Thumbcacheviewer",
+            "url":"https://thumbcacheviewer.github.io/",
+            "scrapewebsite":true,
+            "linkmember":"outerHTML",
+            "likefilter":"64",
+            "notfilter":null,
+            "type":"zip",
+            "ismsi":false
+        }  
+        {
             "Name":"Arsenal",
             "url":"https://arsenalrecon.com/downloads/",
             "scrapewebsite":true,
