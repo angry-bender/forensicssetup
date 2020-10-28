@@ -26,7 +26,7 @@
 
 - [x] Plaso - Maintainer Contacted - Workaround made
 - [ ] winbg- Maintainer Contacted
-- [ ] regripper- Maintainer Contacted
+- [ ] regripper- Maintainer Contacted - (Also part of autospy)
 
 ## Announcements
 
