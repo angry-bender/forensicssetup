@@ -249,6 +249,7 @@ $Messageboxbody = "Please setup Internet Explorer 11, By selecting Use reccommen
 $MessageIcon = [System.Windows.MessageBoxImage]::Warning
 [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
 start-process iexplore.exe -Wait
+write-output  "Note, if the above looks frozen, please press <Enter> to see if the script responds after closing internet explorer and waiting a minute"
 
 #installs packages that require refreshenv
 choco install boxstarter --yes
