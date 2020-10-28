@@ -58,6 +58,7 @@ Implimented the following software;
 - [GUI Tools](#gui-tools-included)
 - AgentRansack
 - FTKImager (Through Consent to go to marketing link at end of script)
+- Thumbcache Viewer
 
 Implimented Explorer Fixes
 
@@ -171,6 +172,7 @@ If you wish to use this script for commercial-use the following software require
 - Universal Extractor
 - WinMerge
 - AgentRansack
+- Thumbcache Viewer
 
 ### GUI Tools Included
 
