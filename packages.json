@@ -28,8 +28,9 @@
             "linkmember":"href",
             "likefilter":"download",
             "notfilter":"downloads",
-            "type":"zip",
-            "status":""
+            "type":"zipexe",
+            "status":"",
+            "msiargs":"/VERYSILENT"
         },
         {
             "Name":"ZimmermanTools",

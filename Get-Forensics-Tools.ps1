@@ -1,6 +1,6 @@
 function Get-CompressedDownload($package, [String] $dl_url)
 {
-    if($package.type -eq "zip")
+    if($package.type -eq "zip" or $package.type -eq "zipexe")
     {
         #Filetype    
         $file = "$($package.name).zip"
@@ -20,6 +20,12 @@ function Get-CompressedDownload($package, [String] $dl_url)
     if($package.type -eq "zip")
     {
         Expand-Archive $file -Force
+    }
+    if($package.type -eq "zipexe")
+    {
+        Expand-Archive $file -Force
+        Start-Process "$($package.name)"  -ArgumentList "$($msiargs)" -wait
+
     }
     elseif ($package.type -eq "7z") 
     {
