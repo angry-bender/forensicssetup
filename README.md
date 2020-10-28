@@ -59,6 +59,7 @@ Implimented the following software;
 - AgentRansack
 - FTKImager (Through Consent to go to marketing link at end of script)
 - Thumbcache Viewer
+- ExifToolGUI
 
 Implimented Explorer Fixes
 
@@ -173,6 +174,7 @@ If you wish to use this script for commercial-use the following software require
 - WinMerge
 - AgentRansack
 - Thumbcache Viewer
+- ExifToolGUI
 
 ### GUI Tools Included
 
