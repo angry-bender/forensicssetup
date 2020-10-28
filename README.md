@@ -256,7 +256,6 @@ If you wish to use this script for commercial-use the following software require
 - SRUM Dump
 - SSDeep
 - TCHunt
-- ThumbCache Viewer
 - Thumbs Viewer
 - TriForce
 - User Assist
