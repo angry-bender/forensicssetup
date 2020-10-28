@@ -6,6 +6,7 @@
   - [Contents](#contents)
   - [KNOWN ISSUES](#known-issues)
     - [Choco packages that are broken #18](#choco-packages-that-are-broken-18)
+    - [Package issues](#package-issues)
   - [Announcements](#announcements)
   - [Description](#description)
     - [Licencing](#licencing)
@@ -27,6 +28,10 @@
 - [x] Plaso - Maintainer Contacted - Workaround made
 - [ ] winbg- Maintainer Contacted
 - [ ] regripper- Maintainer Contacted - (Also part of autospy)
+
+### Package issues
+
+- [ ] Dcode DCode-x86-EN-5.2.20195.4.exe seems to be crashing on launch in a VM. Developer contacted
 
 ## Announcements
 
