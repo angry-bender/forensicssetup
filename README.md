@@ -6,7 +6,6 @@
   - [Contents](#contents)
   - [KNOWN ISSUES](#known-issues)
     - [Choco packages that are broken #18](#choco-packages-that-are-broken-18)
-    - [Zimmerman tools not showing shortcuts or installing binaries  #19](#zimmerman-tools-not-showing-shortcuts-or-installing-binaries-19)
   - [Announcements](#announcements)
   - [Description](#description)
     - [Licencing](#licencing)
@@ -60,6 +59,7 @@ Implimented the following software;
 - FTKImager (Through Consent to go to marketing link at end of script)
 - Thumbcache Viewer
 - ExifToolGUI
+- Thunderbird
 
 Implimented Explorer Fixes
 
@@ -175,6 +175,7 @@ If you wish to use this script for commercial-use the following software require
 - AgentRansack
 - Thumbcache Viewer
 - ExifToolGUI
+- Thunderbird
 
 ### GUI Tools Included
 

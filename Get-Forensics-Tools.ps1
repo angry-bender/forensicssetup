@@ -24,8 +24,7 @@ function Get-CompressedDownload($package, [String] $dl_url)
     if($package.type -eq "zipexe")
     {
         Expand-Archive $file -Force
-        Start-Process "$($package.name)"  -ArgumentList "$($msiargs)" -wait
-
+        Start-Process ".\$($package.name)\$($package.name)*"  -ArgumentList "$($package.msiargs)" -wait
     }
     elseif ($package.type -eq "7z") 
     {
@@ -125,7 +124,7 @@ function Get-Package($package)
         }         
         elseif ($package.type -eq "zip" -or $package.type -eq "7z" -or $package.type -eq "zipexe" ) 
         {
-            Get-CompressedDownload $package "$($dl_url.href)"
+            Get-CompressedDownload $package "$($dl_url.href)" 
         }
         $package.status = "Downloaded"        
     } 
