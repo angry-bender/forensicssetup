@@ -348,9 +348,6 @@ foreach($i  in $exe){
     Set-Location ..
 }
 
-$userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
-[System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Ubuntu", "User")
-
 $ButtonType = [System.Windows.MessageBoxButton]::YesNo
 $MessageboxTitle = "Setup Complete"
 $Messageboxbody = "Please check the powershell table for any errors`nAnother (Non-Sponsored) tool is FTK Imager.`nIf you need this tool, please select yes as per the vendor guidance to this project"
@@ -377,15 +374,6 @@ if($result -eq "Yes")
 }
 
 #Install WSL
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-cd c:\
-Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
-Rename-Item ./Ubuntu.appx ./Ubuntu.zip
-Expand-Archive ./Ubuntu.zip ./Ubuntu
-cd ./Ubuntu
-.\ubuntu1804.exe
-
-#Install WSL
 Write-Host "Please select no to restart the computer to complete this operation, as Windows Subshell Installs
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 cd c:\
@@ -394,7 +382,8 @@ Rename-Item ./Ubuntu.appx ./Ubuntu.zip
 Expand-Archive ./Ubuntu.zip ./Ubuntu
 cd ./Ubuntu
 .\ubuntu1804.exe
-
+$userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
+[System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Ubuntu", "User")
 
 
 
