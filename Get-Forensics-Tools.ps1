@@ -245,7 +245,7 @@ $WShell = New-Object -com "Wscript.Shell"
 Add-Type -AssemblyName PresentationCore,PresentationFramework
 $ButtonType = [System.Windows.MessageBoxButton]::Ok
 $MessageboxTitle = "Setup Requirements"
-$Messageboxbody = "Please setup Internet Explorer 11, By selecting Use reccommended security settings and closing`nThis may take a minute to load`nIt is is required for invoke-webrequest to work in the script installation`nYes.... No one likes internet explorer... its okay, your getting other browsers with this install :-)"
+$Messageboxbody = "Please setup Internet Explorer 11, By selecting Use reccommended security settings and manually closing`nThis may take a minute to load`nIt is is required for invoke-webrequest to work in the script installation`nYes.... No one likes internet explorer... its okay, your getting other browsers with this install :-)"
 $MessageIcon = [System.Windows.MessageBoxImage]::Warning
 [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
 start-process iexplore.exe -Wait
