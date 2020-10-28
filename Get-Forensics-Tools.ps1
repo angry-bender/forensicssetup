@@ -374,17 +374,18 @@ if($result -eq "Yes")
 }
 
 #Install WSL
-Write-Host "Please select no to restart the computer to complete this operation, as Windows Subshell Installs
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+
 cd c:\
+
 Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
+
 Rename-Item ./Ubuntu.appx ./Ubuntu.zip
 Expand-Archive ./Ubuntu.zip ./Ubuntu
+
 cd ./Ubuntu
+
 .\ubuntu1804.exe
+
 $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
 [System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Ubuntu", "User")
-
-
-
-
