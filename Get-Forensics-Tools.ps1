@@ -1,6 +1,6 @@
 function Get-CompressedDownload($package, [String] $dl_url)
 {
-    if($package.type -eq "zip" or $package.type -eq "zipexe")
+    if($package.type -eq "zip" -or $package.type -eq "zipexe")
     {
         #Filetype    
         $file = "$($package.name).zip"
