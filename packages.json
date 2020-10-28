@@ -138,6 +138,10 @@
             "name":"hxd",
             "status":""
         },
+	{
+	    "name":"exiftoolgui",
+	    "status":""
+	},
         {
             "name":"windbg",
             "status":""
