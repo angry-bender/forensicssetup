@@ -37,42 +37,14 @@
 
 Implimented the following software;
 
-- wireshark
-- yara
-- HXD Hex Editor
-- WinDBG
-- Volatility Stand Alone Exe
-- Unix Utils + 14-04-03 Updates
-- sqlitebrowser
-- SQLite Expert
-- Shadow Explorer
-- RegRipper
-- Process Hacker
-- prefetchparser (pecmd)
-- winprefetchview
-- Log Parser
-- Disk2VHD
-- Active State Active Perl
-- GPG4Win
-- Image Magick
-- skypelogview
-- skypecontactsview
-- Universal Extractor
-- WinMerge
-- [GUI Tools](#gui-tools-included)
 - AgentRansack
 - FTKImager (Through Consent to go to marketing link at end of script)
 - Thumbcache Viewer
 - ExifToolGUI
 - Thunderbird
 
-Implimented Explorer Fixes
-
-Fixed error logging
-
-Stop sleep on machine
-
-Stop screentimeout by pressing scrolllock between each script
+Initial WSL Implimentation
+Initial GUI Implimentation
 
 ## Description
 
@@ -331,6 +303,13 @@ Install Chocolatey with
 
 Install Git with
 `.\Get-Git.ps1`
+
+- *If Desired* Install WSL(Bash For Windows) with
+  - `.\Get-WSL.ps1`
+  - Then, Reboot
+
+  - **After reboot**, install ubuntu with
+  - `.\Get-Ubuntu`
 
 Install Forensics Tools with
 `.\Get-Forensics-Tools.ps1`

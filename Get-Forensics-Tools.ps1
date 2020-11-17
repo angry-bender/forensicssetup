@@ -301,6 +301,22 @@ Get-SansResources
 Remove-Item "$($env:LOCALAPPDATA)\Microsoft\WindowsApps\python.exe"
 Remove-Item "$($env:LOCALAPPDATA)\Microsoft\WindowsApps\python3.exe"
 
+#Prepare Nimi
+Expand-Archive .\nimi.zip -Force
+Move-Item '.\nimi\nimi\.Nimi Places\' $env:UserProfile
+Move-Item '.\nimi\nimi\Nimi Places\' $Env:Programfiles
+Remove-Item .\nimi\ -recurse
+
+#Prepare Shorcuts
+Expand-Archive '.\Forensics Tools.zip'
+Move-Item '.\Forensics Tools\Forensics Tools' $([Environment]::GetFolderPath("desktop"))
+Remove-Item '.\Forensics Tools'-recurse
+
+#Prepare Wallpaper
+Move-Item  '.\Wallpaper.jpg' $([Environment]::GetFolderPath("desktop"))
+set-itemproperty -path "HKCU:Control Panel\Desktop" -name WallPaper -value "$($env:USERPROFILE)\Desktop\wallpaper.jpg)"
+Start-Sleep -Seconds 5
+RUNDLL32.EXE USER32.DLL,UpdatePerUserSystemParameters ,1 ,True
 
 
 # Create a working directory for other executables then work there
