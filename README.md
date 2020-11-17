@@ -1,8 +1,8 @@
-# WINSIFT ForensicsSetup Beta 0.4.4
+# WINSIFT ForensicsSetup Beta 0.4.3
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.4.4](#winsift-forensicssetup-beta-043)
+- [WINSIFT ForensicsSetup Beta 0.4.3](#winsift-forensicssetup-beta-043)
   - [Contents](#contents)
   - [KNOWN ISSUES](#known-issues)
     - [Choco packages that are broken #18](#choco-packages-that-are-broken-18)
@@ -34,15 +34,45 @@
 - [ ] Dcode DCode-x86-EN-5.2.20195.4.exe seems to be crashing on launch in a VM. Developer contacted
 
 ## Announcements
-Initial ubuntu WSL implimentation
-Initial GUI Implimentation
 
 Implimented the following software;
+
+- wireshark
+- yara
+- HXD Hex Editor
+- WinDBG
+- Volatility Stand Alone Exe
+- Unix Utils + 14-04-03 Updates
+- sqlitebrowser
+- SQLite Expert
+- Shadow Explorer
+- RegRipper
+- Process Hacker
+- prefetchparser (pecmd)
+- winprefetchview
+- Log Parser
+- Disk2VHD
+- Active State Active Perl
+- GPG4Win
+- Image Magick
+- skypelogview
+- skypecontactsview
+- Universal Extractor
+- WinMerge
+- [GUI Tools](#gui-tools-included)
 - AgentRansack
 - FTKImager (Through Consent to go to marketing link at end of script)
 - Thumbcache Viewer
 - ExifToolGUI
 - Thunderbird
+
+Implimented Explorer Fixes
+
+Fixed error logging
+
+Stop sleep on machine
+
+Stop screentimeout by pressing scrolllock between each script
 
 ## Description
 
