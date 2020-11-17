@@ -28,8 +28,9 @@
             "linkmember":"href",
             "likefilter":"download",
             "notfilter":"downloads",
-            "type":"zip",
-            "status":""
+            "type":"zipexe",
+            "status":"",
+            "msiargs":"/VERYSILENT"
         },
         {
             "Name":"ZimmermanTools",
@@ -76,6 +77,16 @@
             "status":""
         },
         {
+            "Name":"Thumbcacheviewer",
+            "url":"https://thumbcacheviewer.github.io/",
+            "scrapewebsite":true,
+            "linkmember":"outerHTML",
+            "likefilter":"64",
+            "notfilter":null,
+            "type":"zip",
+            "ismsi":false
+        },  
+        {
             "Name":"Arsenal",
             "url":"https://arsenalrecon.com/downloads/",
             "scrapewebsite":true,
@@ -83,9 +94,7 @@
             "likefilter":"button_0",
             "notfilter":null,
             "type":"zip",
-            "ismsi":true,
-            "msiargs":"/silent",
-            "status":""
+            "ismsi":false
         }        
     ],
     "ChocoPackages":
@@ -130,6 +139,10 @@
             "name":"hxd",
             "status":""
         },
+	{
+	    "name":"exiftoolgui",
+	    "status":""
+	},
         {
             "name":"windbg",
             "status":""
@@ -224,6 +237,10 @@
         },
         {
             "name":"firefox",
+            "status":""
+        },
+        {
+            "name":"thunderbird",
             "status":""
         },
         {

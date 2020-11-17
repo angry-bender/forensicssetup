@@ -6,7 +6,7 @@
   - [Contents](#contents)
   - [KNOWN ISSUES](#known-issues)
     - [Choco packages that are broken #18](#choco-packages-that-are-broken-18)
-    - [Zimmerman tools not showing shortcuts or installing binaries  #19](#zimmerman-tools-not-showing-shortcuts-or-installing-binaries-19)
+    - [Package issues](#package-issues)
   - [Announcements](#announcements)
   - [Description](#description)
     - [Licencing](#licencing)
@@ -27,11 +27,22 @@
 
 - [x] Plaso - Maintainer Contacted - Workaround made
 - [ ] winbg- Maintainer Contacted
-- [ ] regripper- Maintainer Contacted
+- [ ] regripper- Maintainer Contacted - (Also part of autospy)
+
+### Package issues
+
+- [ ] Dcode DCode-x86-EN-5.2.20195.4.exe seems to be crashing on launch in a VM. Developer contacted
 
 ## Announcements
-
 Initial ubuntu WSL implimentation
+Initial GUI Implimentation
+
+Implimented the following software;
+- AgentRansack
+- FTKImager (Through Consent to go to marketing link at end of script)
+- Thumbcache Viewer
+- ExifToolGUI
+- Thunderbird
 
 ## Description
 
@@ -137,6 +148,9 @@ If you wish to use this script for commercial-use the following software require
 - Universal Extractor
 - WinMerge
 - AgentRansack
+- Thumbcache Viewer
+- ExifToolGUI
+- Thunderbird
 
 ### GUI Tools Included
 
@@ -220,7 +234,6 @@ If you wish to use this script for commercial-use the following software require
 - SRUM Dump
 - SSDeep
 - TCHunt
-- ThumbCache Viewer
 - Thumbs Viewer
 - TriForce
 - User Assist

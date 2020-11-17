@@ -1,6 +1,6 @@
 function Get-CompressedDownload($package, [String] $dl_url)
 {
-    if($package.type -eq "zip")
+    if($package.type -eq "zip" -or $package.type -eq "zipexe")
     {
         #Filetype    
         $file = "$($package.name).zip"
@@ -20,6 +20,11 @@ function Get-CompressedDownload($package, [String] $dl_url)
     if($package.type -eq "zip")
     {
         Expand-Archive $file -Force
+    }
+    if($package.type -eq "zipexe")
+    {
+        Expand-Archive $file -Force
+        Start-Process ".\$($package.name)\$($package.name)*"  -ArgumentList "$($package.msiargs)" -wait
     }
     elseif ($package.type -eq "7z") 
     {
@@ -117,9 +122,9 @@ function Get-Package($package)
         {
             Get-BundledDownload "$($package.name)" "$($dl_url.href)" 
         }         
-        elseif ($package.type -eq "zip" -or $package.type -eq "7z") 
+        elseif ($package.type -eq "zip" -or $package.type -eq "7z" -or $package.type -eq "zipexe" ) 
         {
-            Get-CompressedDownload $package "$($dl_url.href)"
+            Get-CompressedDownload $package "$($dl_url.href)" 
         }
         $package.status = "Downloaded"        
     } 
@@ -245,10 +250,11 @@ $WShell = New-Object -com "Wscript.Shell"
 Add-Type -AssemblyName PresentationCore,PresentationFramework
 $ButtonType = [System.Windows.MessageBoxButton]::Ok
 $MessageboxTitle = "Setup Requirements"
-$Messageboxbody = "Please setup Internet Explorer 11, By selecting Use reccommended security settings and closing`nThis may take a minute to load`nIt is is required for invoke-webrequest to work in the script installation`nYes.... No one likes internet explorer... its okay, your getting other browsers with this install :-)"
+$Messageboxbody = "Please setup Internet Explorer 11, By selecting Use reccommended security settings and manually closing`nThis may take a minute to load`nIt is is required for invoke-webrequest to work in the script installation`nYes.... No one likes internet explorer... its okay, your getting other browsers with this install :-)"
 $MessageIcon = [System.Windows.MessageBoxImage]::Warning
 [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
 start-process iexplore.exe -Wait
+write-output  "Note, if the above looks frozen, please press <Enter> to see if the script responds after closing internet explorer and waiting a minute"
 
 #installs packages that require refreshenv
 choco install boxstarter --yes
