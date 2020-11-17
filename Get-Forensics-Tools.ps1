@@ -379,19 +379,7 @@ if($result -eq "Yes")
     [system.Diagnostics.Process]::Start("firefox","https://github.com/angry-bender/forensicssetup/issues")
 }
 
-#Install WSL
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
-cd c:\
 
-Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
 
-Rename-Item ./Ubuntu.appx ./Ubuntu.zip
-Expand-Archive ./Ubuntu.zip ./Ubuntu
 
-cd ./Ubuntu
-
-.\ubuntu1804.exe
-
-$userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
-[System.Environment]::SetEnvironmentVariable("PATH", $userenv + ";C:\Ubuntu", "User")
