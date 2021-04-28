@@ -289,7 +289,7 @@ Please raise an issue for extra tools.
 
 ## Pre-requisites
 
-64 Bit Windows 10 1904 or above setup as default.
+64 Bit Windows 10 1904 or above setup as default with username `user` so profiles direct to `C:\users\user` (Failure to do so results in shortcuts and nimiplaces not mapping correctly)
 
 ## Usage
 
