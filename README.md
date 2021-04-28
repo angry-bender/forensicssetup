@@ -26,12 +26,15 @@
 ### Choco packages that are broken [#18](../../issues/18)
 
 - [x] Plaso - Maintainer Contacted - Workaround made
-- [ ] winbg- Maintainer Contacted
+- [x] winbg- Maintainer Contacted - Fixed
 - [ ] regripper- Maintainer Contacted - (Also part of autospy)
 
 ### Package issues
 
 - [ ] Dcode DCode-x86-EN-5.2.20195.4.exe seems to be crashing on launch in a VM. Developer contacted
+
+### Nimi Places
+Shortcuts may not be showing in category with nimi places. A workaround can be conducted by changing your profile directory username and user directory to `user` i.e `C:\users\user\`
 
 ## Announcements
 
