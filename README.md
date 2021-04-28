@@ -1,8 +1,8 @@
-# WINSIFT ForensicsSetup Beta 0.5.1
+# WINSIFT ForensicsSetup Beta 0.9.0
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.5.1](#winsift-forensicssetup-beta-043)
+- [WINSIFT ForensicsSetup Beta 0.9.0](#winsift-forensicssetup-beta-043)
   - [Contents](#contents)
   - [KNOWN ISSUES](#known-issues)
     - [Choco packages that are broken #18](#choco-packages-that-are-broken-18)
@@ -36,26 +36,17 @@ Shortcuts may not be showing in category with nimi places. A workaround can be c
 
 ## Announcements
 
-Implimented the following software;
-
-- AgentRansack
-- FTKImager (Through Consent to go to marketing link at end of script)
-- Thumbcache Viewer
-- ExifToolGUI
-- Thunderbird
-
-Initial WSL Implimentation
+Initial WSL2 Implimentation
 Initial GUI Implimentation
 
 ### In Development
 
 GUI Replication that categorises each tool, similar to the Windows SIFT VM.
-Implimentation of further tools.
+Implimentation of further tools upon request.
 
 ### Feedback / tool Requests
 
-Please raise an issue for extra tools.
-
+Please raise an issue for extra tools. Or, reopen #17
 
 ## Licencing
 
@@ -209,112 +200,6 @@ An open source project aimed to replicate the Windows SIFT Machine used during S
 - Notepad++ [#9](../../issues/9)
 - OpenOffice 4 [#9](../../issues/9)
 - OpenVPN GUI [#9](../../issues/9)
-
-### Unlicenced Software (In Progress)
-
-- $LogFileParser
-- Advanced Prefetch Analyzer
-- Auto_XOR_Decryptor.py
-- Autorip
-- BinText
-- Bulk Extractor
-- Converter
-- cRaRk
-- cRaRk GUI
-- Disk2VHD
-- EDD
-- EMFSpoolerView
-- ESECarve
-- Findevil
-- FixEVT
-- Forensic Copy
-- Forensic Image Viewer - FIV
-- GA Cookie Cruncher
-- Gmail Offline Parser
-- Hindsight
-- INDXParse (W. Ballenthin)
-- jl.exe
-- jobparse.pl
-- Kernel OST Viewer
-- Kernel PST Viewer
-- lslnk-directory-parse2.pl
-- Magnet Acquire
-- MagnetRAMCapture
-- Mandiant Highlighter
-- Mandiant RedLine
-- Mandiant RestorePoint Analyzer
-- Mandiant Shimcache Parser
-- MFT View
-- MiTec Structured Storage View
-- MiTec Windows Registry Analyzer
-- Nuix 6
-- page_brute
-- parse_csc_dir.exe
-- Patator (password cracker)
-- PC Inspector File Recovery
-- pdbxtract
-- Python_EVTX (W. Ballenthin)
-- RecoverRS
-- Recycle Bin Parser
-- RegDecoder
-- RegDecoderLive
-- Registry and File Viewer
-- Registry Decoder
-- rfc.pl
-- rifiuti
-- Rot13 String Decoder
-- RUStrings.pl (Perl Script)
-- SamInside
-- Scalpel
-- Shadow Kit
-- Shellbags
-- Simple File Parser
-- Spider3
-- Spider4
-- SPL Viewer
-- SPL Viewer
-- SQLIte Deleted Records Parser
-- SRUM Dump
-- SSDeep
-- TCHunt
-- Thumbs Viewer
-- TriForce
-- User Assist
-- usnj.pl
-- Volatility (zip with source)
-- Volatility distrom
-- Volatility openpyxl
-- Volatility Pycrypto
-- Volatility Python Imaging Library (PIL)
-- Volatility Twitter / Facebook Plugins
-- Volatility yara
-- VSC Toolset
-- VSS
-- Web Page Saver
-- Wfa3e Tools
-- Wfa4e Tools
-- Windows Registry Recovery
-- winpmem
-- Woanware Autorunner
-- Woanware ChromeForensics
-- Woanware ESEDbViewer
-- Woanware EXE Finder
-- Woanware FFSessionRestoreExt
-- Woanware FireFoxForensics
-- Woanware Forensic User Info
-- Woanware Free D/L Mgr 4n6
-- Woanware JavaIDX Parser
-- Woanware JumpLister
-- Woanware Link Analyser
-- Woanware OperaForensics
-- Woanware Prefetch Forensics
-- Woanware RegRipperRunner
-- Woanware ShimCache Parser
-- Woanware Snortbert
-- Woanware Target Analyser
-- Woanware USB Device Forensics
-- XORSearch
-- XORStrings
 
 ## Developer contact
 
