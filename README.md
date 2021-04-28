@@ -53,6 +53,10 @@ Please raise an issue for extra tools. Or, reopen #17
 This script Is designed for non-commercial use, By installing these scripts, you agree to be bound by the vendors own licence agreement. No responsibility will be taken for licence misuse.
 
 If you wish to use this script for commercial-use the following software requires licencing
+- Arsenal Image Mounter
+- FTK (With marketing sign up, by user consent popup at end of script)
+- Event Log Explorer
+- Kape #23 #10 (Waiting for vendor support from kroll)
 
 ## Pre-requisites
 
@@ -89,12 +93,6 @@ Install Forensics Tools with
 ## Description
 
 An open source project aimed to replicate the Windows SIFT Machine used during SANS Courses minus any payware software. This aims to install the same tools forensics analysts have trained with during their SANS Course, or to quickly prepare for a CTF, as there does not appear to be a similar VM available Open Source.
-
-#### Licenced Software (Included) - Free Licence - Non-Commercial Use
-
-- Arsenal Image Mounter
-- FTK (With marketing sign up, by user consent popup at end of script)
-- Event Log Explorer
 
 #### Licenced Software (Not Included)
 
