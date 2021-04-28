@@ -48,6 +48,8 @@ Implimentation of further tools upon request.
 
 Please raise an issue for extra tools. Or, reopen #17
 
+Attempting to reach out too Kroll again for Kape... requested numourous times
+
 ## Licencing
 
 This script Is designed for non-commercial use, By installing these scripts, you agree to be bound by the vendors own licence agreement. No responsibility will be taken for licence misuse.
