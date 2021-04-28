@@ -253,8 +253,9 @@ $MessageboxTitle = "Setup Requirements"
 $Messageboxbody = "Please setup Internet Explorer 11, By selecting Use reccommended security settings and manually closing`nThis may take a minute to load`nIt is is required for invoke-webrequest to work in the script installation`nYes.... No one likes internet explorer... its okay, your getting other browsers with this install :-)"
 $MessageIcon = [System.Windows.MessageBoxImage]::Warning
 [System.Windows.MessageBox]::Show($Messageboxbody,$MessageboxTitle,$ButtonType,$messageicon)
-start-process iexplore.exe -Wait
 write-output  "Note, if the above looks frozen, please press <Enter> to see if the script responds after closing internet explorer and waiting a minute"
+start-process iexplore.exe -Wait
+
 
 #installs packages that require refreshenv
 choco install boxstarter --yes
