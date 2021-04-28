@@ -25,10 +25,7 @@
 ## KNOWN ISSUES
 
 ### Choco packages that are broken [#18](../../issues/18)
-
-- [x] Plaso - Maintainer Contacted - Workaround made
-- [x] winbg- Maintainer Contacted - Fixed
-- [ ] regripper- Maintainer Contacted - (Also part of autospy)
+ regripper- Maintainer Contacted - (Also part of autospy)
 
 ### Package issues
 
