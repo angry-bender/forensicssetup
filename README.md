@@ -7,18 +7,19 @@
   - [KNOWN ISSUES](#known-issues)
     - [Choco packages that are broken #18](#choco-packages-that-are-broken-18)
     - [Package issues](#package-issues)
+    - [Nimi Places](#Nimi-Places)
   - [Announcements](#announcements)
+    - [In Development](#in-development)
+    - [Feedback / tool Requests](#feedback--tool-requests)
+  - [Licencing](#licencing)
+  - [Pre-requisites](#pre-requisites)
+  - [Usage](#usage)
   - [Description](#description)
-    - [Licencing](#licencing)
       - [Licenced Software (Included) - Free Licence - Non-Commercial Use](#licenced-software-included---free-licence---non-commercial-use)
       - [Licenced Software (Not Included)](#licenced-software-not-included)
     - [Unlicenced Software (Included)](#unlicenced-software-included)
     - [GUI Tools Included](#gui-tools-included)
     - [Unlicenced Software (In Progress)](#unlicenced-software-in-progress)
-    - [In Development](#in-development)
-    - [Feedback / tool Requests](#feedback--tool-requests)
-  - [Pre-requisites](#pre-requisites)
-  - [Usage](#usage)
   - [Developer contact](#developer-contact)
 
 ## KNOWN ISSUES
@@ -49,15 +50,55 @@ Implimented the following software;
 Initial WSL Implimentation
 Initial GUI Implimentation
 
-## Description
+### In Development
 
-An open source project aimed to replicate the Windows SIFT Machine used during SANS Courses minus any payware software. This aims to install the same tools forensics analysts have trained with during their SANS Course, or to quickly prepare for a CTF, as there does not appear to be a similar VM available Open Source.
+GUI Replication that categorises each tool, similar to the Windows SIFT VM.
+Implimentation of further tools.
 
-### Licencing
+### Feedback / tool Requests
+
+Please raise an issue for extra tools.
+
+
+## Licencing
 
 This script Is designed for non-commercial use, By installing these scripts, you agree to be bound by the vendors own licence agreement. No responsibility will be taken for licence misuse.
 
 If you wish to use this script for commercial-use the following software requires licencing
+
+## Pre-requisites
+
+64 Bit Windows 10 1904 or above setup as default with username `user` so profiles direct to `C:\users\user` (Failure to do so results in shortcuts and nimiplaces not mapping correctly)
+
+## Usage
+
+Right click on the start menu, and select Administrative Command Prompt
+
+Set the powershell execution policy with
+`Set-ExecutionPolicy Unresticted`
+
+Change to the downloaded directory i.e  
+`cd $home\Downloads`
+
+Install Chocolatey with
+`.\Get-Chocolatey.ps1`
+
+Install Git with
+`.\Get-Git.ps1`
+
+- *If Desired* Install WSL(Bash For Windows) with
+  - `.\Get-WSL.ps1`
+  - Then, Reboot
+
+  - **After reboot**, install ubuntu with
+  - `.\Get-Ubuntu`
+
+Install Forensics Tools with
+`.\Get-Forensics-Tools.ps1`
+
+## Description
+
+An open source project aimed to replicate the Windows SIFT Machine used during SANS Courses minus any payware software. This aims to install the same tools forensics analysts have trained with during their SANS Course, or to quickly prepare for a CTF, as there does not appear to be a similar VM available Open Source.
 
 #### Licenced Software (Included) - Free Licence - Non-Commercial Use
 
@@ -277,45 +318,6 @@ If you wish to use this script for commercial-use the following software require
 - Woanware USB Device Forensics
 - XORSearch
 - XORStrings
-
-### In Development
-
-GUI Replication that categorises each tool, similar to the Windows SIFT VM.
-Implimentation of further tools.
-
-### Feedback / tool Requests
-
-Please raise an issue for extra tools.
-
-## Pre-requisites
-
-64 Bit Windows 10 1904 or above setup as default with username `user` so profiles direct to `C:\users\user` (Failure to do so results in shortcuts and nimiplaces not mapping correctly)
-
-## Usage
-
-Right click on the start menu, and select Administrative Command Prompt
-
-Set the powershell execution policy with
-`Set-ExecutionPolicy Unresticted`
-
-Change to the downloaded directory i.e  
-`cd $home\Downloads`
-
-Install Chocolatey with
-`.\Get-Chocolatey.ps1`
-
-Install Git with
-`.\Get-Git.ps1`
-
-- *If Desired* Install WSL(Bash For Windows) with
-  - `.\Get-WSL.ps1`
-  - Then, Reboot
-
-  - **After reboot**, install ubuntu with
-  - `.\Get-Ubuntu`
-
-Install Forensics Tools with
-`.\Get-Forensics-Tools.ps1`
 
 ## Developer contact
 
