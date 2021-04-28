@@ -1,5 +1,8 @@
 # WINSIFT ForensicsSetup Beta 0.9.0
 
+![image](https://user-images.githubusercontent.com/18164137/116410447-f0d30a00-a873-11eb-9c6f-d496838549a5.png)
+
+
 ## Contents
 
 - [WINSIFT ForensicsSetup Beta 0.9.0](#winsift-forensicssetup-beta-043)
@@ -26,7 +29,8 @@
 
 ### Choco packages that are broken [#18](../../issues/18)
  regripper- Maintainer Contacted - (Also part of autospy)
- nimi places not launching, may not show tools by category
+ nimi places not launching, may not show tools by category. All shortcuts are under Forensics tools on the desktop
+ 
 
 ### Package issues
 
