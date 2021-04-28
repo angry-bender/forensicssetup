@@ -58,6 +58,8 @@ If you wish to use this script for commercial-use the following software require
 
 64 Bit Windows 10 1904 or above setup as default with username `user` so profiles direct to `C:\users\user` (Failure to do so results in shortcuts and nimiplaces not mapping correctly)
 
+Virtualisation enabled in you're VM if you wish to use WSL
+
 ## Usage
 
 Right click on the start menu, and select Administrative Command Prompt
