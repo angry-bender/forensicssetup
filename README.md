@@ -26,6 +26,7 @@
 
 ### Choco packages that are broken [#18](../../issues/18)
  regripper- Maintainer Contacted - (Also part of autospy)
+ nimi places not launching, may not show tools by category
 
 ### Package issues
 
