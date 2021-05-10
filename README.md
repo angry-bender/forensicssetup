@@ -1,16 +1,16 @@
-# WINSIFT ForensicsSetup Beta 0.9.0
+# WINSIFT ForensicsSetup Beta 0.9.1
 
 ![image](https://user-images.githubusercontent.com/18164137/116410447-f0d30a00-a873-11eb-9c6f-d496838549a5.png)
 
 
 ## Contents
 
-- [WINSIFT ForensicsSetup Beta 0.9.0](#winsift-forensicssetup-beta-043)
+- [WINSIFT ForensicsSetup Beta 0.9.1](#winsift-forensicssetup-beta-091)
   - [Contents](#contents)
   - [KNOWN ISSUES](#known-issues)
     - [Choco packages that are broken #18](#choco-packages-that-are-broken-18)
     - [Package issues](#package-issues)
-    - [Nimi Places](#Nimi-Places)
+    - [Nimi Places](#nimi-places)
   - [Announcements](#announcements)
     - [In Development](#in-development)
     - [Feedback / tool Requests](#feedback--tool-requests)
@@ -18,11 +18,9 @@
   - [Pre-requisites](#pre-requisites)
   - [Usage](#usage)
   - [Description](#description)
-      - [Licenced Software (Included) - Free Licence - Non-Commercial Use](#licenced-software-included---free-licence---non-commercial-use)
       - [Licenced Software (Not Included)](#licenced-software-not-included)
     - [Unlicenced Software (Included)](#unlicenced-software-included)
     - [GUI Tools Included](#gui-tools-included)
-    - [Unlicenced Software (In Progress)](#unlicenced-software-in-progress)
   - [Developer contact](#developer-contact)
 
 ## KNOWN ISSUES
