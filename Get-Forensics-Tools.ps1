@@ -56,6 +56,10 @@ function Install-MSI([string] $name, [string]$msiargs)
         Write-Host "Installing $($installer.name), Please Wait"
         Start-Process "$($pwd)\$($installer.name)"  -ArgumentList "$($msiargs)" -wait
         $status = "$($name) Intalled by MSI"
+        #Checks for msi opening browsers
+        Start-Sleep 5
+        $browser = Get-Process | Where-Object {$_.MainWindowTitle -like "*$($name)*"}
+        $browser | stop-process -force
 
     }
     elseif($dircontents.Extension -like "*.msi*")
@@ -143,7 +147,7 @@ function Get-GitPackage($package)
     # $name = $webresponse[0].name
     $releasetype = $webresponse[0].assets[$($package.releasenum)].content_type
 
-    if($releasetype -like "application/zip") 
+    if($releasetype -like "application/zip" -or $releasetype -like "binary/octet-stream" -or $releasetype -like "application/x-zip-compressed") 
     {
         $package.type = "zip"
         Get-CompressedDownload $package "$($download)"

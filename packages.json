@@ -17,7 +17,23 @@
             "msiargs":"/silent",
             "type":"",
             "status":""
-        }
+        },
+        {
+			"Owner":"gchq",
+			"Name":"CyberChef",
+			"ReleaseNum":0,
+            "ismsi":false,
+            "type":"zip",
+            "status":""
+		},
+        {
+			"Owner":"woanware",
+			"Name":"wmi-parser",
+			"ReleaseNum":0,
+            "ismsi":false,
+            "type":"zip",
+            "status":""
+		}
     ],
     "WebPackages":
     [
@@ -65,7 +81,7 @@
             "status":""
         },
         {
-            "Name":"SearchEverything",
+            "Name":"Search Everything",
             "url":"https://www.voidtools.com/downloads",
             "scrapewebsite":true,
             "linkmember":"outerHTML",
@@ -77,14 +93,15 @@
             "status":""
         },
         {
-            "Name":"Thumbcacheviewer",
+            "Name":"Thumb cache viewer",
             "url":"https://thumbcacheviewer.github.io/",
             "scrapewebsite":true,
             "linkmember":"outerHTML",
             "likefilter":"64",
             "notfilter":null,
             "type":"zip",
-            "ismsi":false
+            "ismsi":false,
+            "status":""
         },  
         {
             "Name":"Arsenal",
@@ -94,7 +111,17 @@
             "likefilter":"button_0",
             "notfilter":null,
             "type":"zip",
-            "ismsi":false
+            "ismsi":false,
+            "status":""
+        },
+        {
+            "Name":"Kernel OST Viewer",
+            "url":"https://www.nucleustechnologies.com/downloads/freekernelostviewer.exe",
+            "scrapewebsite":false,
+            "type":"exe",
+            "ismsi":true,
+            "msiargs":"/VERYSILENT",
+            "status":""
         }        
     ],
     "ChocoPackages":
