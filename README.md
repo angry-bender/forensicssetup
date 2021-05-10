@@ -95,6 +95,7 @@ Install Git with
 Install Forensics Tools with
 `.\Get-Forensics-Tools.ps1`
 
+*Note* if you want full system indexing, thanks to garbage windows search, you can either use everything, or change the indexing options to C:\ at this time, this is an issue thats beyond the scope of this project, as it requires a windows SDK Dll. See [#32](https://github.com/angry-bender/forensicssetup/issues/32)
 ## Description
 
 An open source project aimed to replicate the Windows SIFT Machine used during SANS Courses minus any payware software. This aims to install the same tools forensics analysts have trained with during their SANS Course, or to quickly prepare for a CTF, as there does not appear to be a similar VM available Open Source.
