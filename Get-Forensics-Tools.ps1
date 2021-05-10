@@ -375,6 +375,14 @@ foreach($i  in $exe){
     Set-Location ..
 }
 
+$cmdexe = Get-ChildItem -Recurse -Include *.exe | where-object name -like *cmd*
+foreach($i  in $cmdexe){
+    $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
+    $newpath = "$oldpath;$($i.directory)"
+    Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath  
+}
+refreshenv
+
 $ButtonType = [System.Windows.MessageBoxButton]::YesNo
 $MessageboxTitle = "Setup Complete"
 $Messageboxbody = "Please check the powershell table for any errors`nAnother (Non-Sponsored) tool is FTK Imager.`nIf you need this tool, please select yes as per the vendor guidance to this project"
