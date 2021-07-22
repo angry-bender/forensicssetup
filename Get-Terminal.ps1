@@ -1,4 +1,4 @@
-echo "there may be a small delay, please wait at least a minute"
+echo "there may be a small delay, please wait at least 3 Minutes"
 Install-Module oh-my-posh -Scope CurrentUser -Force
 Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck
 
