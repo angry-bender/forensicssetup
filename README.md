@@ -92,6 +92,9 @@ Install Git with
   - **After reboot**, install ubuntu with
   - `.\Get-Ubuntu`
 
+- *If Desired* Install experimental windows terminal feature
+  - `.\Get-Terminal.ps1`
+
 Install Forensics Tools with
 `.\Get-Forensics-Tools.ps1`
 
