@@ -1,314 +1,311 @@
 {
-    "GitPackages": 
-    [
+    "GitPackages": [
         {
-			"Owner":"orlikoski",
-			"Name":"CyLR",
-			"ReleaseNum":2,
-            "ismsi":false,
-            "type":"",
-            "status":""
-		},
-		{
-			"Owner":"google",
-			"Name":"rekall",
-			"ReleaseNum":1,
-            "ismsi":true,
-            "msiargs":"/silent",
-            "type":"",
-            "status":""
+            "Owner": "orlikoski",
+            "Name": "CyLR",
+            "ReleaseNum": 2,
+            "ismsi": false,
+            "type": "",
+            "status": ""
         },
         {
-			"Owner":"gchq",
-			"Name":"CyberChef",
-			"ReleaseNum":0,
-            "ismsi":false,
-            "type":"zip",
-            "status":""
-		},
+            "Owner": "google",
+            "Name": "rekall",
+            "ReleaseNum": 1,
+            "ismsi": true,
+            "msiargs": "/silent",
+            "type": "",
+            "status": ""
+        },
         {
-			"Owner":"woanware",
-			"Name":"wmi-parser",
-			"ReleaseNum":0,
-            "ismsi":false,
-            "type":"zip",
-            "status":""
-		}
+            "Owner": "gchq",
+            "Name": "CyberChef",
+            "ReleaseNum": 0,
+            "ismsi": false,
+            "type": "zip",
+            "status": ""
+        },
+        {
+            "Owner": "woanware",
+            "Name": "wmi-parser",
+            "ReleaseNum": 0,
+            "ismsi": false,
+            "type": "zip",
+            "status": ""
+        }
     ],
-    "WebPackages":
-    [
+    "WebPackages": [
         {
-            "Name":"dcode",
-            "url":"https://www.digital-detective.net/dcode",
-            "scrapewebsite":true,
-            "linkmember":"href",
-            "likefilter":"download",
-            "notfilter":"downloads",
-            "type":"zipexe",
-            "status":"",
-            "msiargs":"/VERYSILENT"
+            "Name": "dcode",
+            "url": "https://www.digital-detective.net/dcode",
+            "scrapewebsite": true,
+            "linkmember": "href",
+            "likefilter": "download",
+            "notfilter": "downloads",
+            "type": "zipexe",
+            "status": "",
+            "msiargs": "/VERYSILENT"
         },
         {
-            "Name":"ZimmermanTools",
-            "url":"https://f001.backblazeb2.com/file/EricZimmermanTools/Get-ZimmermanTools.zip",
-            "scrapewebsite":false,
-            "type":"zip",
-            "ismsi":false,
-            "status":""
-        },        
-        {
-            "Name":"Hashcat",
-            "url":"https://hashcat.net/files/hashcat-6.1.1.7z",
-            "scrapewebsite":false,
-            "type":"7z",
-            "status":""      
+            "Name": "ZimmermanTools",
+            "url": "https://f001.backblazeb2.com/file/EricZimmermanTools/Get-ZimmermanTools.zip",
+            "scrapewebsite": false,
+            "type": "zip",
+            "ismsi": false,
+            "status": ""
         },
         {
-            "Name":"Event Log Explorer",
-            "url":"https://eventlogxp.com/download/elex_setup.exe",
-            "scrapewebsite":false,
-            "type":"exe",
-            "ismsi":true,
-            "msiargs":"/silent",
-            "status":""
+            "Name": "Hashcat",
+            "url": "https://hashcat.net/files/hashcat-6.1.1.7z",
+            "scrapewebsite": false,
+            "type": "7z",
+            "status": ""
         },
         {
-            "Name":"Plaso",
-            "url":"https://github.com/log2timeline/plaso/releases/download/20191203/plaso-20191203-py3.7-amd64.zip",
-            "scrapewebsite":false,
-            "type":"zip",
-            "ismsi":false,
-            "status":""
+            "Name": "Event Log Explorer",
+            "url": "https://eventlogxp.com/download/elex_setup.exe",
+            "scrapewebsite": false,
+            "type": "exe",
+            "ismsi": true,
+            "msiargs": "/silent",
+            "status": ""
         },
         {
-            "Name":"Search Everything",
-            "url":"https://www.voidtools.com/downloads",
-            "scrapewebsite":true,
-            "linkmember":"outerHTML",
-            "likefilter":"Installer 64-bit",
-            "notfilter":"Lite",
-            "type":"exe",
-            "ismsi":true,
-            "msiargs":"/S",
-            "status":""
+            "Name": "Plaso",
+            "url": "https://github.com/log2timeline/plaso/releases/download/20191203/plaso-20191203-py3.7-amd64.zip",
+            "scrapewebsite": false,
+            "type": "zip",
+            "ismsi": false,
+            "status": ""
         },
         {
-            "Name":"Thumb cache viewer",
-            "url":"https://thumbcacheviewer.github.io/",
-            "scrapewebsite":true,
-            "linkmember":"outerHTML",
-            "likefilter":"64",
-            "notfilter":null,
-            "type":"zip",
-            "ismsi":false,
-            "status":""
-        },  
-        {
-            "Name":"Arsenal",
-            "url":"https://arsenalrecon.com/downloads/",
-            "scrapewebsite":true,
-            "linkmember":"outerHTML",
-            "likefilter":"button_0",
-            "notfilter":null,
-            "type":"zip",
-            "ismsi":false,
-            "status":""
+            "Name": "Search Everything",
+            "url": "https://www.voidtools.com/downloads",
+            "scrapewebsite": true,
+            "linkmember": "outerHTML",
+            "likefilter": "Installer 64-bit",
+            "notfilter": "Lite",
+            "type": "exe",
+            "ismsi": true,
+            "msiargs": "/S",
+            "status": ""
         },
         {
-            "Name":"Kernel OST Viewer",
-            "url":"https://www.nucleustechnologies.com/downloads/freekernelostviewer.exe",
-            "scrapewebsite":false,
-            "type":"exe",
-            "ismsi":true,
-            "msiargs":"/VERYSILENT",
-            "status":""
-        }        
+            "Name": "Thumb cache viewer",
+            "url": "https://thumbcacheviewer.github.io/",
+            "scrapewebsite": true,
+            "linkmember": "outerHTML",
+            "likefilter": "64",
+            "notfilter": null,
+            "type": "zip",
+            "ismsi": false,
+            "status": ""
+        },
+        {
+            "Name": "Arsenal",
+            "url": "https://arsenalrecon.com/downloads/",
+            "scrapewebsite": true,
+            "linkmember": "outerHTML",
+            "likefilter": "button_0",
+            "notfilter": null,
+            "type": "zip",
+            "ismsi": false,
+            "status": ""
+        },
+        {
+            "Name": "Kernel OST Viewer",
+            "url": "https://www.nucleustechnologies.com/downloads/freekernelostviewer.exe",
+            "scrapewebsite": false,
+            "type": "exe",
+            "ismsi": true,
+            "msiargs": "/VERYSILENT",
+            "status": ""
+        }
     ],
-    "ChocoPackages":
-    [
+    "ChocoPackages": [
         {
-            "name":"sysinternals",
-            "status":""
+            "name": "sysinternals",
+            "status": ""
         },
         {
-            "name":"nirlauncher",
-            "status":""
+            "name": "nirlauncher",
+            "status": ""
         },
         {
-            "name":"photorec",
-            "status":""
+            "name": "photorec",
+            "status": ""
         },
         {
-            "name":"sleuthkit",
-            "status":""
+            "name": "sleuthkit",
+            "status": ""
         },
         {
-            "name":"network-miner",
-            "status":""
+            "name": "network-miner",
+            "status": ""
         },
         {
-            "name":"agentransack",
-            "status":""
-        },     
-        {
-            "name":"autopsy",
-            "status":""
+            "name": "agentransack",
+            "status": ""
         },
         {
-            "name":"wireshark",
-            "status":""
+            "name": "autopsy",
+            "status": ""
         },
         {
-            "name":"yara",
-            "status":""
+            "name": "wireshark",
+            "status": ""
         },
         {
-            "name":"hxd",
-            "status":""
-        },
-	{
-	    "name":"exiftoolgui",
-	    "status":""
-	},
-        {
-            "name":"windbg",
-            "status":""
+            "name": "yara",
+            "status": ""
         },
         {
-            "name":"volatility",
-            "status":""
+            "name": "hxd",
+            "status": ""
         },
         {
-            "name":"unxutils",
-            "status":""
+            "name": "exiftoolgui",
+            "status": ""
         },
         {
-            "name":"sqlitebrowser",
-            "status":""
-        },  
-        {
-            "name":"sqliteexpert.install",
-            "status":""
-        },       
-        {
-            "name":"shadowexplorer",
-            "status":""
-        },  
-        {
-            "name":"regripper",
-            "status":""
-        }, 
-        {
-            "name":"processhacker.portable",
-            "status":""
-        }, 
-        {
-            "name":"winprefetchview",
-            "status":""
-        }, 
-        {
-            "name":"logparser",
-            "status":""
-        }, 
-        {
-            "name":"Disk2VHD",
-            "status":""
-        }, 
-        {
-            "name":"activeperl",
-            "status":""
-        }, 
-        {
-            "name":"gpg4win",
-            "status":""
-        }, 
-        {
-            "name":"imagemagick",
-            "status":""
-        }, 
-        {
-            "name":"skypelogview",
-            "status":""
-        }, 
-        {
-            "name":"skypecontactsview",
-            "status":""
-        }, 
-        {
-            "name":"universal-extractor",
-            "status":""
+            "name": "windbg",
+            "status": ""
         },
         {
-            "name":"winmerge",
-            "status":""
+            "name": "volatility",
+            "status": ""
         },
         {
-            "name":"defraggler",
-            "status":""
-        },    
-        {
-            "name":"pip",
-            "status":""
+            "name": "unxutils",
+            "status": ""
         },
         {
-            "name":"7zip",
-            "status":""
+            "name": "sqlitebrowser",
+            "status": ""
         },
         {
-            "name":"adobeair",
-            "status":""
+            "name": "sqliteexpert.install",
+            "status": ""
         },
         {
-            "name":"adobereader",
-            "status":""
+            "name": "shadowexplorer",
+            "status": ""
         },
         {
-            "name":"firefox",
-            "status":""
+            "name": "regripper",
+            "status": ""
         },
         {
-            "name":"thunderbird",
-            "status":""
+            "name": "processhacker.portable",
+            "status": ""
         },
         {
-            "name":"flashplayerplugin",
-            "status":""
+            "name": "winprefetchview",
+            "status": ""
         },
         {
-            "name":"flashplayeractivex",
-            "status":""
+            "name": "logparser",
+            "status": ""
         },
         {
-            "name":"googlechrome",
-            "status":""
+            "name": "Disk2VHD",
+            "status": ""
         },
         {
-            "name":"javaruntime",
-            "status":""
+            "name": "activeperl",
+            "status": ""
         },
         {
-            "name":"notepadplusplus",
-            "status":""
+            "name": "gpg4win",
+            "status": ""
         },
         {
-            "name":"openoffice",
-            "status":""
+            "name": "imagemagick",
+            "status": ""
         },
         {
-            "name":"openvpn",
-            "status":""
+            "name": "skypelogview",
+            "status": ""
         },
         {
-            "name":"putty",
-            "status":""
+            "name": "skypecontactsview",
+            "status": ""
         },
         {
-            "name":"vlc",
-            "status":""
+            "name": "universal-extractor",
+            "status": ""
         },
         {
-            "name":"jre8",
-            "status":""
+            "name": "winmerge",
+            "status": ""
+        },
+        {
+            "name": "defraggler",
+            "status": ""
+        },
+        {
+            "name": "pip",
+            "status": ""
+        },
+        {
+            "name": "7zip",
+            "status": ""
+        },
+        {
+            "name": "adobeair",
+            "status": ""
+        },
+        {
+            "name": "adobereader",
+            "status": ""
+        },
+        {
+            "name": "firefox",
+            "status": ""
+        },
+        {
+            "name": "thunderbird",
+            "status": ""
+        },
+        {
+            "name": "flashplayerplugin",
+            "status": ""
+        },
+        {
+            "name": "flashplayeractivex",
+            "status": ""
+        },
+        {
+            "name": "googlechrome",
+            "status": ""
+        },
+        {
+            "name": "javaruntime",
+            "status": ""
+        },
+        {
+            "name": "notepadplusplus",
+            "status": ""
+        },
+        {
+            "name": "openoffice",
+            "status": ""
+        },
+        {
+            "name": "openvpn",
+            "status": ""
+        },
+        {
+            "name": "putty",
+            "status": ""
+        },
+        {
+            "name": "vlc",
+            "status": ""
+        },
+        {
+            "name": "jre8",
+            "status": ""
         }
     ]
 }
