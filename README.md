@@ -23,6 +23,12 @@
     - [GUI Tools Included](#gui-tools-included)
   - [Developer contact](#developer-contact)
 
+
+# This project has been depreceiated by WinFor-Salt
+
+Due to some of the constraints in managing the source URL's in Powershell, I'd like to link to the great work by @digitalsleuth - https://github.com/digitalsleuth/winfor-salt as per PR #38 we have reached feature parity there.
+
+
 ## KNOWN ISSUES
 
 ### Choco packages that are broken [#18](../../issues/18)
